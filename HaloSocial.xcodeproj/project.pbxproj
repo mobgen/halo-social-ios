@@ -8,25 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		002E62151DD1E32900B4CE78 /* HaloSocialFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 002E62131DD1E32900B4CE78 /* HaloSocialFacebook.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		002E62241DD1E5E900B4CE78 /* HaloSocialGooglePlus.h in Headers */ = {isa = PBXBuildFile; fileRef = 002E62221DD1E5E900B4CE78 /* HaloSocialGooglePlus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		002E62241DD1E5E900B4CE78 /*  in Headers */ = {isa = PBXBuildFile; fileRef = 002E62221DD1E5E900B4CE78 /*  */; settings = {ATTRIBUTES = (Public, ); }; };
 		002E623E1DD2307E00B4CE78 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E623B1DD2307E00B4CE78 /* Bolts.framework */; };
 		002E623F1DD2307E00B4CE78 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E623C1DD2307E00B4CE78 /* FBSDKCoreKit.framework */; };
 		002E62401DD2307E00B4CE78 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E623D1DD2307E00B4CE78 /* FBSDKLoginKit.framework */; };
 		002E62431DD233D100B4CE78 /* Halo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62421DD233D100B4CE78 /* Halo.framework */; };
 		002E62441DD233D100B4CE78 /* Halo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62421DD233D100B4CE78 /* Halo.framework */; };
+		002E624C1DD237FE00B4CE78 /* GoogleAppUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62471DD237FE00B4CE78 /* GoogleAppUtilities.framework */; };
+		002E624D1DD237FE00B4CE78 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 002E62481DD237FE00B4CE78 /* GoogleSignIn.bundle */; };
+		002E624E1DD237FE00B4CE78 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62491DD237FE00B4CE78 /* GoogleSignIn.framework */; };
+		002E624F1DD237FE00B4CE78 /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E624A1DD237FE00B4CE78 /* GoogleSignInDependencies.framework */; };
+		002E62501DD237FE00B4CE78 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E624B1DD237FE00B4CE78 /* GoogleSymbolUtilities.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		002E62101DD1E32900B4CE78 /* HaloSocialFacebook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaloSocialFacebook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		002E62131DD1E32900B4CE78 /* HaloSocialFacebook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HaloSocialFacebook.h; sourceTree = "<group>"; };
 		002E62141DD1E32900B4CE78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		002E62201DD1E5E900B4CE78 /* HaloSocialGooglePlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaloSocialGooglePlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		002E62221DD1E5E900B4CE78 /* HaloSocialGooglePlus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HaloSocialGooglePlus.h; path = GooglePlus/HaloSocialGooglePlus.h; sourceTree = "<group>"; };
-		002E62231DD1E5E900B4CE78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = GooglePlus/Info.plist; sourceTree = "<group>"; };
+		002E62201DD1E5E900B4CE78 /* HaloSocialGoogle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaloSocialGoogle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		002E62221DD1E5E900B4CE78 /*  */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ""; sourceTree = "<group>"; };
+		002E62231DD1E5E900B4CE78 /*  */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ""; sourceTree = "<group>"; };
 		002E623B1DD2307E00B4CE78 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		002E623C1DD2307E00B4CE78 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		002E623D1DD2307E00B4CE78 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		002E62421DD233D100B4CE78 /* Halo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Halo.framework; path = Carthage/Build/iOS/Halo.framework; sourceTree = "<group>"; };
+		002E62471DD237FE00B4CE78 /* GoogleAppUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppUtilities.framework; sourceTree = "<group>"; };
+		002E62481DD237FE00B4CE78 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
+		002E62491DD237FE00B4CE78 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
+		002E624A1DD237FE00B4CE78 /* GoogleSignInDependencies.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignInDependencies.framework; sourceTree = "<group>"; };
+		002E624B1DD237FE00B4CE78 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +55,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002E624C1DD237FE00B4CE78 /* GoogleAppUtilities.framework in Frameworks */,
+				002E624E1DD237FE00B4CE78 /* GoogleSignIn.framework in Frameworks */,
+				002E62501DD237FE00B4CE78 /* GoogleSymbolUtilities.framework in Frameworks */,
+				002E624F1DD237FE00B4CE78 /* GoogleSignInDependencies.framework in Frameworks */,
 				002E62441DD233D100B4CE78 /* Halo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,7 +71,7 @@
 			children = (
 				002E62411DD2337100B4CE78 /* Frameworks */,
 				002E62121DD1E32900B4CE78 /* Facebook */,
-				002E62211DD1E5E900B4CE78 /* GooglePlus */,
+				002E62211DD1E5E900B4CE78 /* Google */,
 				002E62111DD1E32900B4CE78 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				002E62101DD1E32900B4CE78 /* HaloSocialFacebook.framework */,
-				002E62201DD1E5E900B4CE78 /* HaloSocialGooglePlus.framework */,
+				002E62201DD1E5E900B4CE78 /* HaloSocialGoogle.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,14 +95,14 @@
 			path = Facebook;
 			sourceTree = "<group>";
 		};
-		002E62211DD1E5E900B4CE78 /* GooglePlus */ = {
+		002E62211DD1E5E900B4CE78 /* Google */ = {
 			isa = PBXGroup;
 			children = (
-				002E62221DD1E5E900B4CE78 /* HaloSocialGooglePlus.h */,
-				002E62231DD1E5E900B4CE78 /* Info.plist */,
+				002E62461DD237FE00B4CE78 /* Frameworks */,
+				002E62221DD1E5E900B4CE78 /*  */,
+				002E62231DD1E5E900B4CE78 /*  */,
 			);
-			name = GooglePlus;
-			path = HaloSocialGooglePlus;
+			path = Google;
 			sourceTree = "<group>";
 		};
 		002E623A1DD2307E00B4CE78 /* Frameworks */ = {
@@ -109,6 +123,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		002E62461DD237FE00B4CE78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				002E62471DD237FE00B4CE78 /* GoogleAppUtilities.framework */,
+				002E62481DD237FE00B4CE78 /* GoogleSignIn.bundle */,
+				002E62491DD237FE00B4CE78 /* GoogleSignIn.framework */,
+				002E624A1DD237FE00B4CE78 /* GoogleSignInDependencies.framework */,
+				002E624B1DD237FE00B4CE78 /* GoogleSymbolUtilities.framework */,
+			);
+			name = Frameworks;
+			path = Google/Frameworks;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -124,7 +151,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				002E62241DD1E5E900B4CE78 /* HaloSocialGooglePlus.h in Headers */,
+				002E62241DD1E5E900B4CE78 /*  in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,9 +176,9 @@
 			productReference = 002E62101DD1E32900B4CE78 /* HaloSocialFacebook.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		002E621F1DD1E5E900B4CE78 /* HaloSocialGooglePlus */ = {
+		002E621F1DD1E5E900B4CE78 /* HaloSocialGoogle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 002E62251DD1E5E900B4CE78 /* Build configuration list for PBXNativeTarget "HaloSocialGooglePlus" */;
+			buildConfigurationList = 002E62251DD1E5E900B4CE78 /* Build configuration list for PBXNativeTarget "HaloSocialGoogle" */;
 			buildPhases = (
 				002E621B1DD1E5E900B4CE78 /* Sources */,
 				002E621C1DD1E5E900B4CE78 /* Frameworks */,
@@ -162,9 +189,9 @@
 			);
 			dependencies = (
 			);
-			name = HaloSocialGooglePlus;
+			name = HaloSocialGoogle;
 			productName = HaloSocialGooglePlus;
-			productReference = 002E62201DD1E5E900B4CE78 /* HaloSocialGooglePlus.framework */;
+			productReference = 002E62201DD1E5E900B4CE78 /* HaloSocialGoogle.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -201,7 +228,7 @@
 			projectRoot = "";
 			targets = (
 				002E620F1DD1E32900B4CE78 /* HaloSocialFacebook */,
-				002E621F1DD1E5E900B4CE78 /* HaloSocialGooglePlus */,
+				002E621F1DD1E5E900B4CE78 /* HaloSocialGoogle */,
 			);
 		};
 /* End PBXProject section */
@@ -218,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002E624D1DD237FE00B4CE78 /* GoogleSignIn.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +428,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/GooglePlus/Frameworks",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/GooglePlus/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -423,6 +452,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/GooglePlus/Frameworks",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/GooglePlus/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -455,7 +485,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		002E62251DD1E5E900B4CE78 /* Build configuration list for PBXNativeTarget "HaloSocialGooglePlus" */ = {
+		002E62251DD1E5E900B4CE78 /* Build configuration list for PBXNativeTarget "HaloSocialGoogle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				002E62261DD1E5E900B4CE78 /* Debug */,

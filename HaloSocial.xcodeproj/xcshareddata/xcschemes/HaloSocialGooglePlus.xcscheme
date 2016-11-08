@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "002E621F1DD1E5E900B4CE78"
-               BuildableName = "HaloSocialGooglePlus.framework"
-               BlueprintName = "HaloSocialGooglePlus"
+               BuildableName = "HaloSocialGoogle.framework"
+               BlueprintName = "HaloSocialGoogle"
                ReferencedContainer = "container:HaloSocial.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "002E621F1DD1E5E900B4CE78"
-            BuildableName = "HaloSocialGooglePlus.framework"
-            BlueprintName = "HaloSocialGooglePlus"
+            BuildableName = "HaloSocialGoogle.framework"
+            BlueprintName = "HaloSocialGoogle"
             ReferencedContainer = "container:HaloSocial.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,8 +64,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "002E621F1DD1E5E900B4CE78"
-            BuildableName = "HaloSocialGooglePlus.framework"
-            BlueprintName = "HaloSocialGooglePlus"
+            BuildableName = "HaloSocialGoogle.framework"
+            BlueprintName = "HaloSocialGoogle"
             ReferencedContainer = "container:HaloSocial.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
