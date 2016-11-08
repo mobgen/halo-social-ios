@@ -16,8 +16,8 @@
 		002E62131DD1E32900B4CE78 /* HaloSocialFacebook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HaloSocialFacebook.h; sourceTree = "<group>"; };
 		002E62141DD1E32900B4CE78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		002E62201DD1E5E900B4CE78 /* HaloSocialGooglePlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaloSocialGooglePlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		002E62221DD1E5E900B4CE78 /* HaloSocialGooglePlus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HaloSocialGooglePlus.h; path = ../GooglePlus/HaloSocialGooglePlus.h; sourceTree = "<group>"; };
-		002E62231DD1E5E900B4CE78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../GooglePlus/Info.plist; sourceTree = "<group>"; };
+		002E62221DD1E5E900B4CE78 /* HaloSocialGooglePlus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HaloSocialGooglePlus.h; path = GooglePlus/HaloSocialGooglePlus.h; sourceTree = "<group>"; };
+		002E62231DD1E5E900B4CE78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = GooglePlus/Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -410,6 +410,7 @@
 				002E62271DD1E5E900B4CE78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
