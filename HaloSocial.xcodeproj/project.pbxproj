@@ -18,8 +18,34 @@
 		002E624E1DD237FE00B4CE78 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62491DD237FE00B4CE78 /* GoogleSignIn.framework */; };
 		002E624F1DD237FE00B4CE78 /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E624A1DD237FE00B4CE78 /* GoogleSignInDependencies.framework */; };
 		002E62501DD237FE00B4CE78 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E624B1DD237FE00B4CE78 /* GoogleSymbolUtilities.framework */; };
-		002E62531DD238E100B4CE78 /* HaloSocialGoogle.h in Headers */ = {isa = PBXBuildFile; fileRef = 002E62511DD238E100B4CE78 /* HaloSocialGoogle.h */; };
-		002E62541DD238E100B4CE78 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 002E62521DD238E100B4CE78 /* Info.plist */; };
+		002E62531DD238E100B4CE78 /* HaloSocialGoogle.h in Headers */ = {isa = PBXBuildFile; fileRef = 002E62511DD238E100B4CE78 /* HaloSocialGoogle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		002E62561DD3148C00B4CE78 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62551DD3148C00B4CE78 /* SafariServices.framework */; };
+		002E62581DD3149400B4CE78 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62571DD3149400B4CE78 /* SystemConfiguration.framework */; };
+		002E625C1DD4846300B4CE78 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E625B1DD4846300B4CE78 /* CoreFoundation.framework */; };
+		002E625D1DD4847200B4CE78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62591DD3286B00B4CE78 /* Foundation.framework */; };
+		002E625F1DD484D800B4CE78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E625E1DD484D800B4CE78 /* CoreGraphics.framework */; };
+		002E62611DD484E600B4CE78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62601DD484E600B4CE78 /* UIKit.framework */; };
+		002E62631DD4850B00B4CE78 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62621DD4850B00B4CE78 /* CoreText.framework */; };
+		002E62651DD4852D00B4CE78 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62641DD4852D00B4CE78 /* Security.framework */; };
+		002E62731DD622A800B4CE78 /* HaloSocial.h in Headers */ = {isa = PBXBuildFile; fileRef = 002E62711DD622A700B4CE78 /* HaloSocial.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		002FAE971DDE0A1D002A10ED /* SocialProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE961DDE0A1D002A10ED /* SocialProfile.swift */; };
+		002FAE991DDE0BD0002A10ED /* AuthProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE981DDE0BD0002A10ED /* AuthProfile.swift */; };
+		002FAE9B1DDE0C8D002A10ED /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE9A1DDE0C8D002A10ED /* UserProfile.swift */; };
+		002FAE9D1DDE0CA8002A10ED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE9C1DDE0CA8002A10ED /* User.swift */; };
+		002FAEA01DDE10F2002A10ED /* SocialProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE9F1DDE10F2002A10ED /* SocialProvider.swift */; };
+		002FAEA21DDE1177002A10ED /* FacebookSocialProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAEA11DDE1177002A10ED /* FacebookSocialProvider.swift */; };
+		002FAEA41DDE1189002A10ED /* GoogleSocialProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAEA31DDE1189002A10ED /* GoogleSocialProvider.swift */; };
+		002FAEA51DDE11EF002A10ED /* HaloSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E626F1DD622A700B4CE78 /* HaloSocial.framework */; };
+		002FAEA61DDE11F5002A10ED /* HaloSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E626F1DD622A700B4CE78 /* HaloSocial.framework */; };
+		007B4C2A1DDF0AD600CE680C /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B4C291DDF0AD600CE680C /* SocialManager.swift */; };
+		007B4C2E1DDF128700CE680C /* HaloSocialProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B4C2D1DDF128700CE680C /* HaloSocialProvider.swift */; };
+		007B4C2F1DDF1A8200CE680C /* GoogleAppUtilities.framework in Resources */ = {isa = PBXBuildFile; fileRef = 002E62471DD237FE00B4CE78 /* GoogleAppUtilities.framework */; };
+		007B4C301DDF1A8200CE680C /* GoogleSignIn.framework in Resources */ = {isa = PBXBuildFile; fileRef = 002E62491DD237FE00B4CE78 /* GoogleSignIn.framework */; };
+		007B4C311DDF1A8200CE680C /* GoogleSignInDependencies.framework in Resources */ = {isa = PBXBuildFile; fileRef = 002E624A1DD237FE00B4CE78 /* GoogleSignInDependencies.framework */; };
+		007B4C321DDF1A8200CE680C /* GoogleSymbolUtilities.framework in Resources */ = {isa = PBXBuildFile; fileRef = 002E624B1DD237FE00B4CE78 /* GoogleSymbolUtilities.framework */; };
+		007B4C331DDF1A8C00CE680C /* Bolts.framework in Resources */ = {isa = PBXBuildFile; fileRef = 002E623B1DD2307E00B4CE78 /* Bolts.framework */; };
+		007B4C341DDF1A8C00CE680C /* FBSDKCoreKit.framework in Resources */ = {isa = PBXBuildFile; fileRef = 002E623C1DD2307E00B4CE78 /* FBSDKCoreKit.framework */; };
+		007B4C351DDF1A8C00CE680C /* FBSDKLoginKit.framework in Resources */ = {isa = PBXBuildFile; fileRef = 002E623D1DD2307E00B4CE78 /* FBSDKLoginKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +64,26 @@
 		002E624B1DD237FE00B4CE78 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
 		002E62511DD238E100B4CE78 /* HaloSocialGoogle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HaloSocialGoogle.h; sourceTree = "<group>"; };
 		002E62521DD238E100B4CE78 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		002E62551DD3148C00B4CE78 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		002E62571DD3149400B4CE78 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		002E62591DD3286B00B4CE78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		002E625B1DD4846300B4CE78 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		002E625E1DD484D800B4CE78 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		002E62601DD484E600B4CE78 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		002E62621DD4850B00B4CE78 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		002E62641DD4852D00B4CE78 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		002E626F1DD622A700B4CE78 /* HaloSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaloSocial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		002E62711DD622A700B4CE78 /* HaloSocial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HaloSocial.h; sourceTree = "<group>"; };
+		002E62721DD622A800B4CE78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		002FAE961DDE0A1D002A10ED /* SocialProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialProfile.swift; sourceTree = "<group>"; };
+		002FAE981DDE0BD0002A10ED /* AuthProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProfile.swift; sourceTree = "<group>"; };
+		002FAE9A1DDE0C8D002A10ED /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		002FAE9C1DDE0CA8002A10ED /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		002FAE9F1DDE10F2002A10ED /* SocialProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialProvider.swift; sourceTree = "<group>"; };
+		002FAEA11DDE1177002A10ED /* FacebookSocialProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookSocialProvider.swift; sourceTree = "<group>"; };
+		002FAEA31DDE1189002A10ED /* GoogleSocialProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSocialProvider.swift; sourceTree = "<group>"; };
+		007B4C291DDF0AD600CE680C /* SocialManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialManager.swift; sourceTree = "<group>"; };
+		007B4C2D1DDF128700CE680C /* HaloSocialProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HaloSocialProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002FAEA51DDE11EF002A10ED /* HaloSocial.framework in Frameworks */,
 				002E623E1DD2307E00B4CE78 /* Bolts.framework in Frameworks */,
 				002E623F1DD2307E00B4CE78 /* FBSDKCoreKit.framework in Frameworks */,
 				002E62431DD233D100B4CE78 /* Halo.framework in Frameworks */,
@@ -56,11 +103,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002FAEA61DDE11F5002A10ED /* HaloSocial.framework in Frameworks */,
+				002E62651DD4852D00B4CE78 /* Security.framework in Frameworks */,
+				002E62631DD4850B00B4CE78 /* CoreText.framework in Frameworks */,
+				002E62611DD484E600B4CE78 /* UIKit.framework in Frameworks */,
+				002E625F1DD484D800B4CE78 /* CoreGraphics.framework in Frameworks */,
+				002E625D1DD4847200B4CE78 /* Foundation.framework in Frameworks */,
+				002E625C1DD4846300B4CE78 /* CoreFoundation.framework in Frameworks */,
+				002E62581DD3149400B4CE78 /* SystemConfiguration.framework in Frameworks */,
+				002E62561DD3148C00B4CE78 /* SafariServices.framework in Frameworks */,
 				002E624C1DD237FE00B4CE78 /* GoogleAppUtilities.framework in Frameworks */,
 				002E624E1DD237FE00B4CE78 /* GoogleSignIn.framework in Frameworks */,
 				002E62501DD237FE00B4CE78 /* GoogleSymbolUtilities.framework in Frameworks */,
 				002E624F1DD237FE00B4CE78 /* GoogleSignInDependencies.framework in Frameworks */,
 				002E62441DD233D100B4CE78 /* Halo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		002E626B1DD622A700B4CE78 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +133,7 @@
 		002E62061DD1E32900B4CE78 = {
 			isa = PBXGroup;
 			children = (
+				002E62701DD622A700B4CE78 /* Common */,
 				002E62411DD2337100B4CE78 /* Frameworks */,
 				002E62121DD1E32900B4CE78 /* Facebook */,
 				002E62211DD1E5E900B4CE78 /* Google */,
@@ -82,6 +146,7 @@
 			children = (
 				002E62101DD1E32900B4CE78 /* HaloSocialFacebook.framework */,
 				002E62201DD1E5E900B4CE78 /* HaloSocialGoogle.framework */,
+				002E626F1DD622A700B4CE78 /* HaloSocial.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,6 +157,7 @@
 				002E623A1DD2307E00B4CE78 /* Frameworks */,
 				002E62131DD1E32900B4CE78 /* HaloSocialFacebook.h */,
 				002E62141DD1E32900B4CE78 /* Info.plist */,
+				002FAEA11DDE1177002A10ED /* FacebookSocialProvider.swift */,
 			);
 			path = Facebook;
 			sourceTree = "<group>";
@@ -102,6 +168,7 @@
 				002E62461DD237FE00B4CE78 /* Frameworks */,
 				002E62511DD238E100B4CE78 /* HaloSocialGoogle.h */,
 				002E62521DD238E100B4CE78 /* Info.plist */,
+				002FAEA31DDE1189002A10ED /* GoogleSocialProvider.swift */,
 			);
 			path = Google;
 			sourceTree = "<group>";
@@ -119,6 +186,14 @@
 		002E62411DD2337100B4CE78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				002E62641DD4852D00B4CE78 /* Security.framework */,
+				002E62621DD4850B00B4CE78 /* CoreText.framework */,
+				002E62601DD484E600B4CE78 /* UIKit.framework */,
+				002E625E1DD484D800B4CE78 /* CoreGraphics.framework */,
+				002E625B1DD4846300B4CE78 /* CoreFoundation.framework */,
+				002E62591DD3286B00B4CE78 /* Foundation.framework */,
+				002E62571DD3149400B4CE78 /* SystemConfiguration.framework */,
+				002E62551DD3148C00B4CE78 /* SafariServices.framework */,
 				002E62421DD233D100B4CE78 /* Halo.framework */,
 			);
 			name = Frameworks;
@@ -137,6 +212,38 @@
 			path = Google/Frameworks;
 			sourceTree = SOURCE_ROOT;
 		};
+		002E62701DD622A700B4CE78 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				002FAE9E1DDE10D9002A10ED /* Provider */,
+				00E5983C1DDC5E56007BBF52 /* Model */,
+				002E62711DD622A700B4CE78 /* HaloSocial.h */,
+				002E62721DD622A800B4CE78 /* Info.plist */,
+				007B4C291DDF0AD600CE680C /* SocialManager.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		002FAE9E1DDE10D9002A10ED /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				002FAE9F1DDE10F2002A10ED /* SocialProvider.swift */,
+				007B4C2D1DDF128700CE680C /* HaloSocialProvider.swift */,
+			);
+			name = Provider;
+			sourceTree = "<group>";
+		};
+		00E5983C1DDC5E56007BBF52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				002FAE961DDE0A1D002A10ED /* SocialProfile.swift */,
+				002FAE981DDE0BD0002A10ED /* AuthProfile.swift */,
+				002FAE9A1DDE0C8D002A10ED /* UserProfile.swift */,
+				002FAE9C1DDE0CA8002A10ED /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -153,6 +260,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				002E62531DD238E100B4CE78 /* HaloSocialGoogle.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		002E626C1DD622A700B4CE78 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				002E62731DD622A800B4CE78 /* HaloSocial.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +310,24 @@
 			productReference = 002E62201DD1E5E900B4CE78 /* HaloSocialGoogle.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		002E626E1DD622A700B4CE78 /* HaloSocial */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 002E62741DD622A800B4CE78 /* Build configuration list for PBXNativeTarget "HaloSocial" */;
+			buildPhases = (
+				002E626A1DD622A700B4CE78 /* Sources */,
+				002E626B1DD622A700B4CE78 /* Frameworks */,
+				002E626C1DD622A700B4CE78 /* Headers */,
+				002E626D1DD622A700B4CE78 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HaloSocial;
+			productName = HaloSocial;
+			productReference = 002E626F1DD622A700B4CE78 /* HaloSocial.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -207,11 +340,19 @@
 					002E620F1DD1E32900B4CE78 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 4DWNK4MCTP;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					002E621F1DD1E5E900B4CE78 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 4DWNK4MCTP;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
+					};
+					002E626E1DD622A700B4CE78 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 4DWNK4MCTP;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -228,6 +369,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				002E626E1DD622A700B4CE78 /* HaloSocial */,
 				002E620F1DD1E32900B4CE78 /* HaloSocialFacebook */,
 				002E621F1DD1E5E900B4CE78 /* HaloSocialGoogle */,
 			);
@@ -239,6 +381,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				007B4C331DDF1A8C00CE680C /* Bolts.framework in Resources */,
+				007B4C341DDF1A8C00CE680C /* FBSDKCoreKit.framework in Resources */,
+				007B4C351DDF1A8C00CE680C /* FBSDKLoginKit.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,8 +391,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				002E62541DD238E100B4CE78 /* Info.plist in Resources */,
+				007B4C2F1DDF1A8200CE680C /* GoogleAppUtilities.framework in Resources */,
 				002E624D1DD237FE00B4CE78 /* GoogleSignIn.bundle in Resources */,
+				007B4C301DDF1A8200CE680C /* GoogleSignIn.framework in Resources */,
+				007B4C311DDF1A8200CE680C /* GoogleSignInDependencies.framework in Resources */,
+				007B4C321DDF1A8200CE680C /* GoogleSymbolUtilities.framework in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		002E626D1DD622A700B4CE78 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002FAEA21DDE1177002A10ED /* FacebookSocialProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +421,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002FAEA41DDE1189002A10ED /* GoogleSocialProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		002E626A1DD622A700B4CE78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				007B4C2E1DDF128700CE680C /* HaloSocialProvider.swift in Sources */,
+				007B4C2A1DDF0AD600CE680C /* SocialManager.swift in Sources */,
+				002FAE9D1DDE0CA8002A10ED /* User.swift in Sources */,
+				002FAE971DDE0A1D002A10ED /* SocialProfile.swift in Sources */,
+				002FAE991DDE0BD0002A10ED /* AuthProfile.swift in Sources */,
+				002FAEA01DDE10F2002A10ED /* SocialProvider.swift in Sources */,
+				002FAE9B1DDE0C8D002A10ED /* UserProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +483,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -359,7 +530,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -373,6 +544,7 @@
 		002E62191DD1E32900B4CE78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 4DWNK4MCTP;
@@ -390,6 +562,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobgen.HaloSocialFacebook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -397,6 +570,7 @@
 		002E621A1DD1E32900B4CE78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 4DWNK4MCTP;
@@ -421,6 +595,7 @@
 		002E62261DD1E5E900B4CE78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 4DWNK4MCTP;
@@ -435,9 +610,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Google/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobgen.HaloSocialGoogle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -445,6 +622,7 @@
 		002E62271DD1E5E900B4CE78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 4DWNK4MCTP;
@@ -459,7 +637,49 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Google/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobgen.HaloSocialGoogle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		002E62751DD622A800B4CE78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4DWNK4MCTP;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Common/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobgen.HaloSocial;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		002E62761DD622A800B4CE78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4DWNK4MCTP;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Common/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobgen.HaloSocial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -492,6 +712,15 @@
 			buildConfigurations = (
 				002E62261DD1E5E900B4CE78 /* Debug */,
 				002E62271DD1E5E900B4CE78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		002E62741DD622A800B4CE78 /* Build configuration list for PBXNativeTarget "HaloSocial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				002E62751DD622A800B4CE78 /* Debug */,
+				002E62761DD622A800B4CE78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

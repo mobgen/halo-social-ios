@@ -15,5 +15,3 @@ FOUNDATION_EXPORT double HaloSocialGooglePlusVersionNumber;
 FOUNDATION_EXPORT const unsigned char HaloSocialGooglePlusVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <HaloSocialGooglePlus/PublicHeader.h>
-
-
