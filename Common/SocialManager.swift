@@ -9,11 +9,6 @@
 import Foundation
 import Halo
 
-@objc
-public enum SocialNetwork: Int {
-    case halo, facebook, google
-}
-
 @objc(HaloSocialManager)
 public class SocialManager: NSObject, HaloManager {
     
@@ -22,11 +17,11 @@ public class SocialManager: NSObject, HaloManager {
         
     }
     
-    public func login(network: SocialNetwork, authProfile: AuthProfile?, completionHandler handler: (SocialProfile?, NSError?) -> Void) -> Void {
+    public func register(authProfile: AuthProfile, userProfile: UserProfile, completionHandler handler: (User?, NSError?) -> Void) -> Void {
         
     }
     
-    public func register(authProfile: AuthProfile, userProfile: UserProfile, completionHandler handler: (SocialProfile?, NSError?) -> Void) -> Void {
+    public func loginWithHalo(username: String, password: String) {
         
     }
     

@@ -28,7 +28,8 @@
 		002E62631DD4850B00B4CE78 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62621DD4850B00B4CE78 /* CoreText.framework */; };
 		002E62651DD4852D00B4CE78 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62641DD4852D00B4CE78 /* Security.framework */; };
 		002E62731DD622A800B4CE78 /* HaloSocial.h in Headers */ = {isa = PBXBuildFile; fileRef = 002E62711DD622A700B4CE78 /* HaloSocial.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		002FAE971DDE0A1D002A10ED /* SocialProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE961DDE0A1D002A10ED /* SocialProfile.swift */; };
+		002EDCFE1DED91140022F96D /* SocialManager+Facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EDCFD1DED91140022F96D /* SocialManager+Facebook.swift */; };
+		002EDD001DED913C0022F96D /* SocialManager+Google.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EDCFF1DED913C0022F96D /* SocialManager+Google.swift */; };
 		002FAE991DDE0BD0002A10ED /* AuthProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE981DDE0BD0002A10ED /* AuthProfile.swift */; };
 		002FAE9B1DDE0C8D002A10ED /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE9A1DDE0C8D002A10ED /* UserProfile.swift */; };
 		002FAE9D1DDE0CA8002A10ED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE9C1DDE0CA8002A10ED /* User.swift */; };
@@ -75,7 +76,8 @@
 		002E626F1DD622A700B4CE78 /* HaloSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaloSocial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		002E62711DD622A700B4CE78 /* HaloSocial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HaloSocial.h; sourceTree = "<group>"; };
 		002E62721DD622A800B4CE78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		002FAE961DDE0A1D002A10ED /* SocialProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialProfile.swift; sourceTree = "<group>"; };
+		002EDCFD1DED91140022F96D /* SocialManager+Facebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SocialManager+Facebook.swift"; sourceTree = "<group>"; };
+		002EDCFF1DED913C0022F96D /* SocialManager+Google.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SocialManager+Google.swift"; sourceTree = "<group>"; };
 		002FAE981DDE0BD0002A10ED /* AuthProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProfile.swift; sourceTree = "<group>"; };
 		002FAE9A1DDE0C8D002A10ED /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		002FAE9C1DDE0CA8002A10ED /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				002E62131DD1E32900B4CE78 /* HaloSocialFacebook.h */,
 				002E62141DD1E32900B4CE78 /* Info.plist */,
 				002FAEA11DDE1177002A10ED /* FacebookSocialProvider.swift */,
+				002EDCFD1DED91140022F96D /* SocialManager+Facebook.swift */,
 			);
 			path = Facebook;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				002E62511DD238E100B4CE78 /* HaloSocialGoogle.h */,
 				002E62521DD238E100B4CE78 /* Info.plist */,
 				002FAEA31DDE1189002A10ED /* GoogleSocialProvider.swift */,
+				002EDCFF1DED913C0022F96D /* SocialManager+Google.swift */,
 			);
 			path = Google;
 			sourceTree = "<group>";
@@ -236,7 +240,6 @@
 		00E5983C1DDC5E56007BBF52 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				002FAE961DDE0A1D002A10ED /* SocialProfile.swift */,
 				002FAE981DDE0BD0002A10ED /* AuthProfile.swift */,
 				002FAE9A1DDE0C8D002A10ED /* UserProfile.swift */,
 				002FAE9C1DDE0CA8002A10ED /* User.swift */,
@@ -413,6 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002EDCFE1DED91140022F96D /* SocialManager+Facebook.swift in Sources */,
 				002FAEA21DDE1177002A10ED /* FacebookSocialProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				002FAEA41DDE1189002A10ED /* GoogleSocialProvider.swift in Sources */,
+				002EDD001DED913C0022F96D /* SocialManager+Google.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +437,6 @@
 				007B4C2E1DDF128700CE680C /* HaloSocialProvider.swift in Sources */,
 				007B4C2A1DDF0AD600CE680C /* SocialManager.swift in Sources */,
 				002FAE9D1DDE0CA8002A10ED /* User.swift in Sources */,
-				002FAE971DDE0A1D002A10ED /* SocialProfile.swift in Sources */,
 				002FAE991DDE0BD0002A10ED /* AuthProfile.swift in Sources */,
 				002FAEA01DDE10F2002A10ED /* SocialProvider.swift in Sources */,
 				002FAE9B1DDE0C8D002A10ED /* UserProfile.swift in Sources */,
