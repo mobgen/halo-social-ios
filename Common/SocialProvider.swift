@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import Halo
 
 @objc
 public protocol SocialProvider {
     
-    func authenticate(accountType: String, completionHandler handler: (SocialProfile) -> Void) -> Void
+    func authenticate(authProfile: AuthProfile, completionHandler handler: (User?, NSError?) -> Void) -> Void
     
 }

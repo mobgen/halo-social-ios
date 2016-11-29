@@ -13,6 +13,11 @@ import GoogleSignIn
 @objc(HaloGoogleSocialProvider)
 class GoogleSocialProvider: NSObject, SocialProvider {
     
+    func authenticate(authProfile: AuthProfile, completionHandler handler: (User?, NSError?) -> Void) {
+        
+    }
+
+    
 }
 
 extension SocialProvider {

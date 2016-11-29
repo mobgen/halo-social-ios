@@ -10,5 +10,9 @@ import Foundation
 
 @objc
 public class HaloSocialProvider: NSObject, SocialProvider {
+
+    public func authenticate(authProfile: AuthProfile, completionHandler handler: (User?, NSError?) -> Void) {
+        
+    }
     
 }

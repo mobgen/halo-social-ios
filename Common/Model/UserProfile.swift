@@ -11,4 +11,36 @@ import Foundation
 @objc(HaloUserProfile)
 public class UserProfile: NSObject {
     
+    var identifiedId: String
+    var email: String
+    var profilePictureUrl: String?
+    var displayName: String? {
+        get {
+            if displayName == nil {
+                return name
+            }
+            return displayName
+        }
+        set {
+            displayName = newValue
+        }
+    }
+    var name: String
+    var surname: String
+    
+    public override var debugDescription: String {
+        return "[UserProfile] Id: \(identifiedId) | Email: \(email) | DisplayName: \(displayName)"
+    }
+    
+    init(id: String, email: String, name: String, surname: String, displayName: String?, profilePictureUrl: String?) {
+        self.identifiedId = id
+        self.email = email
+        self.name = name
+        self.surname = surname
+        super.init()
+        self.displayName = displayName
+        self.profilePictureUrl = profilePictureUrl
+        
+    }
+    
 }
