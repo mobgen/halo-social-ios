@@ -29,7 +29,6 @@
 		002E62651DD4852D00B4CE78 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62641DD4852D00B4CE78 /* Security.framework */; };
 		002E62731DD622A800B4CE78 /* HaloSocial.h in Headers */ = {isa = PBXBuildFile; fileRef = 002E62711DD622A700B4CE78 /* HaloSocial.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		002EDD071DED9BDD0022F96D /* Halo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62421DD233D100B4CE78 /* Halo.framework */; };
-		002FAE971DDE0A1D002A10ED /* SocialProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE961DDE0A1D002A10ED /* SocialProfile.swift */; };
 		002FAE991DDE0BD0002A10ED /* AuthProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE981DDE0BD0002A10ED /* AuthProfile.swift */; };
 		002FAE9B1DDE0C8D002A10ED /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE9A1DDE0C8D002A10ED /* UserProfile.swift */; };
 		002FAE9D1DDE0CA8002A10ED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE9C1DDE0CA8002A10ED /* User.swift */; };
@@ -76,7 +75,6 @@
 		002E626F1DD622A700B4CE78 /* HaloSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaloSocial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		002E62711DD622A700B4CE78 /* HaloSocial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HaloSocial.h; sourceTree = "<group>"; };
 		002E62721DD622A800B4CE78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		002FAE961DDE0A1D002A10ED /* SocialProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialProfile.swift; sourceTree = "<group>"; };
 		002FAE981DDE0BD0002A10ED /* AuthProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProfile.swift; sourceTree = "<group>"; };
 		002FAE9A1DDE0C8D002A10ED /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		002FAE9C1DDE0CA8002A10ED /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -238,7 +236,6 @@
 		00E5983C1DDC5E56007BBF52 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				002FAE961DDE0A1D002A10ED /* SocialProfile.swift */,
 				002FAE981DDE0BD0002A10ED /* AuthProfile.swift */,
 				002FAE9A1DDE0C8D002A10ED /* UserProfile.swift */,
 				002FAE9C1DDE0CA8002A10ED /* User.swift */,
@@ -434,7 +431,6 @@
 				007B4C2E1DDF128700CE680C /* HaloSocialProvider.swift in Sources */,
 				007B4C2A1DDF0AD600CE680C /* SocialManager.swift in Sources */,
 				002FAE9D1DDE0CA8002A10ED /* User.swift in Sources */,
-				002FAE971DDE0A1D002A10ED /* SocialProfile.swift in Sources */,
 				002FAE991DDE0BD0002A10ED /* AuthProfile.swift in Sources */,
 				002FAEA01DDE10F2002A10ED /* SocialProvider.swift in Sources */,
 				002FAE9B1DDE0C8D002A10ED /* UserProfile.swift in Sources */,
