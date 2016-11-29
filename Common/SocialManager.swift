@@ -18,11 +18,11 @@ public class SocialManager: NSObject, HaloManager {
         
     }
     
-    public func loginWithHalo(authProfile: AuthProfile?, completionHandler handler: (SocialProfile?, NSError?) -> Void) -> Void {
+    public func loginWithHalo(authProfile: AuthProfile?, completionHandler handler: (User?, NSError?) -> Void) -> Void {
      
     }
     
-    public func register(authProfile: AuthProfile, userProfile: UserProfile, completionHandler handler: (SocialProfile?, NSError?) -> Void) -> Void {
+    public func register(authProfile: AuthProfile, userProfile: UserProfile, completionHandler handler: (User?, NSError?) -> Void) -> Void {
         
     }
     
