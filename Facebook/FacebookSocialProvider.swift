@@ -9,7 +9,22 @@
 import Foundation
 import HaloSocial
 
-public class FacebookSocialProvider: SocialProvider {
+class FacebookSocialProvider: SocialProvider {
  
+    public func authenticate(authProfile: AuthProfile, completionHandler handler: (User?, NSError?) -> Void) {
+        
+    }
+    
+}
+
+extension SocialManager {
+    
+    static let facebookProvider: FacebookSocialProvider = {
+        return FacebookSocialProvider()
+    }()
+    
+    public func loginWithFacebook() {
+        
+    }
     
 }

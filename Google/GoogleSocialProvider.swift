@@ -10,20 +10,22 @@ import Foundation
 import HaloSocial
 import GoogleSignIn
 
-@objc(HaloGoogleSocialProvider)
 class GoogleSocialProvider: NSObject, SocialProvider {
     
-    func authenticate(authProfile: AuthProfile, completionHandler handler: (User?, NSError?) -> Void) {
+    public func authenticate(authProfile: AuthProfile, completionHandler handler: (User?, NSError?) -> Void) {
         
     }
-
     
 }
 
 extension SocialProvider {
     
-    var googleProvider: GoogleSocialProvider {
+    let googleProvider: GoogleSocialProvider = {
         return GoogleSocialProvider()
+    }()
+ 
+    public func loginWithGoogle() {
+    
     }
     
 }

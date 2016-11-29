@@ -28,6 +28,7 @@
 		002E62631DD4850B00B4CE78 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62621DD4850B00B4CE78 /* CoreText.framework */; };
 		002E62651DD4852D00B4CE78 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62641DD4852D00B4CE78 /* Security.framework */; };
 		002E62731DD622A800B4CE78 /* HaloSocial.h in Headers */ = {isa = PBXBuildFile; fileRef = 002E62711DD622A700B4CE78 /* HaloSocial.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		002EDD071DED9BDD0022F96D /* Halo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62421DD233D100B4CE78 /* Halo.framework */; };
 		002FAE971DDE0A1D002A10ED /* SocialProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE961DDE0A1D002A10ED /* SocialProfile.swift */; };
 		002FAE991DDE0BD0002A10ED /* AuthProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE981DDE0BD0002A10ED /* AuthProfile.swift */; };
 		002FAE9B1DDE0C8D002A10ED /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE9A1DDE0C8D002A10ED /* UserProfile.swift */; };
@@ -124,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002EDD071DED9BDD0022F96D /* Halo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +657,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Common/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -676,6 +682,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Common/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

@@ -16,13 +16,13 @@ public class UserProfile: NSObject {
     var profilePictureUrl: String?
     var displayName: String? {
         get {
-            if displayName == nil {
+            if self.displayName == nil {
                 return name
             }
-            return displayName
+            return self.displayName
         }
         set {
-            displayName = newValue
+            self.displayName = newValue
         }
     }
     var name: String
