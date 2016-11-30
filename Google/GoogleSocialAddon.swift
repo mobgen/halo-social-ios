@@ -13,7 +13,7 @@ import SwiftKeychainWrapper
 import GoogleSignIn
 import Firebase
 
-public class GoogleSocialAddon: DeeplinkingAddon, SocialProvider {
+public class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDSignInDelegate {
     
     public var addonName: String = "GoogleSocialAddon"
     
@@ -27,6 +27,8 @@ public class GoogleSocialAddon: DeeplinkingAddon, SocialProvider {
             FIRApp.configure()
         }
         
+        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
     }
     
     public func willRegisterAddon(haloCore core: CoreManager) {
@@ -38,13 +40,29 @@ public class GoogleSocialAddon: DeeplinkingAddon, SocialProvider {
     }
     
     public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        return false
+        return GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
+    @available(iOS 9.0, *)
     public func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-        return false
+        return GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
     }
     
+    // MARK: GIDSignInDelegate
+    
+    public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+        if let idToken = user.authentication?.accessToken {
+            // Submit the token to the server
+            print("Google token: \(idToken)")
+        }
+    }
+    
+    public func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Remove from keychain if stored?
+    }
+
+    // MARK: SocialProvider
     
     public func authenticate(authProfile: AuthProfile, completionHandler handler: (User?, NSError?) -> Void) {
         
@@ -58,8 +76,13 @@ public extension SocialManager {
         return Manager.core.addons.filter { $0 is GoogleSocialAddon }.first as? GoogleSocialAddon
     }
     
-    func loginWithGoogle() {
+    func loginWithGoogle(uiDelegate: GIDSignInUIDelegate?) {
         
+        if let delegate = uiDelegate {
+            GIDSignIn.sharedInstance().uiDelegate = delegate
+        }
+        
+        GIDSignIn.sharedInstance().signIn()
     }
     
 }
