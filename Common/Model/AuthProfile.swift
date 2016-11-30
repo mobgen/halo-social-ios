@@ -8,22 +8,82 @@
 
 import Foundation
 
+enum Network: String {
+    case Halo = "halo"
+    case Facebook = "facebook"
+    case Google = "google"
+}
+
 @objc(HaloAuthProfile)
 public class AuthProfile: NSObject {
     
+    struct Keys {
+        static let DeviceId = "deviceId"
+        static let Network = "network"
+        static let Email = "email"
+        static let Password = "password"
+        static let Token = "token"
+    }
+    
+    var deviceId: String
+    var network: String
     var email: String?
     var password: String?
-    var deviceId: String?
+    var token: String?
     
     public override var debugDescription: String {
         return "[AuthProfile] Email: \(email) | Password: \(password) | DeviceId: \(deviceId)"
+            + "| Token \(token) | Network: \(network)"
     }
     
-    init(email: String, password: String, deviceId: String?) {
-        super.init()
+    /**
+     *  Constructor for AuthProfile with Halo.
+     *
+     *  @param  email       String  Email.
+     *  @param  password    String  Password.
+     *  @param  deviceId    String  DeviceId.
+     **/
+    init(email: String, password: String, deviceId: String) {
         self.email = email
         self.password = password
         self.deviceId = deviceId
+        self.network = Network.Halo.rawValue
+        super.init()
+    }
+    
+    /**
+     *  Constructor for AuthProfile with social network.
+     *
+     *  @param  token       String  Token from social network.
+     *  @param  network     String  Social network to use.
+     *  @param  deviceId    String  DeviceId.
+     **/
+    init(token: String, network: Network, deviceId: String) {
+        self.token = token
+        self.network = network.rawValue
+        self.deviceId = deviceId
+        super.init()
+    }
+    
+    func toDictionary() -> [String: String] {
+        var dict: [String: String] = [
+            Keys.DeviceId: self.deviceId,
+            Keys.Network: self.network
+        ]
+        
+        if let email = self.email {
+            dict.updateValue(email, forKey: Keys.Email)
+        }
+        
+        if let password = self.password {
+            dict.updateValue(password, forKey: Keys.Password)
+        }
+        
+        if let token = self.token {
+            dict.updateValue(token, forKey: Keys.Token)
+        }
+        
+        return dict
     }
     
 }

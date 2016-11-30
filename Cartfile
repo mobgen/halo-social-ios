@@ -1,1 +1,3 @@
 git "https://bitbucket.org/mobgen/halo-sdk-ios.git" "develop"
+
+github "facebook/Facebook-SDK-Swift" "master"

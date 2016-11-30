@@ -11,6 +11,15 @@ import Foundation
 @objc(HaloUserProfile)
 public class UserProfile: NSObject {
     
+    struct Keys {
+        static let Id = "id"
+        static let Email = "email"
+        static let Name = "name"
+        static let Surname = "surname"
+        static let DisplayName = "displayName"
+        static let PhotoUrl = "photoUrl"
+    }
+    
     var identifiedId: String
     var email: String
     var profilePictureUrl: String?
@@ -40,7 +49,33 @@ public class UserProfile: NSObject {
         super.init()
         self.displayName = displayName
         self.profilePictureUrl = profilePictureUrl
-        
     }
     
+    class func fromDictionary(_ dict: [String: Any]) -> UserProfile {
+        
+        var identifiedIdString: String = ""
+        var emailString: String = ""
+        var nameString: String = ""
+        var surnameString: String = ""
+        
+        if let id = dict[Keys.Id] as? String {
+            identifiedIdString = id
+        }
+        
+        if let email = dict[Keys.Email] as? String {
+            emailString = email
+        }
+        
+        if let name = dict[Keys.Name] as? String {
+            nameString = name
+        }
+        
+        if let surname = dict[Keys.Surname] as? String {
+            surnameString = surname
+        }
+        
+        return UserProfile(id: identifiedIdString, email: emailString, name: nameString,
+                           surname: surnameString, displayName: dict[Keys.DisplayName] as? String,
+                           profilePictureUrl: dict[Keys.PhotoUrl] as? String)
+    }
 }
