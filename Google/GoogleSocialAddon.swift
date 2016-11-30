@@ -29,6 +29,8 @@ public class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDS
         
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        
+        LogMessage(message: "Configured GoogleSignIn with clientId: \(GIDSignIn.sharedInstance().clientID)", level: .info).print()
     }
     
     public func willRegisterAddon(haloCore core: CoreManager) {
@@ -79,7 +81,7 @@ public extension SocialManager {
         return Manager.core.addons.filter { $0 is GoogleSocialAddon }.first as? GoogleSocialAddon
     }
     
-    func loginWithGoogle(uiDelegate: GIDSignInUIDelegate?) {
+    func loginWithGoogle(uiDelegate: GIDSignInUIDelegate? = nil) {
         
         if let delegate = uiDelegate {
             GIDSignIn.sharedInstance().uiDelegate = delegate
