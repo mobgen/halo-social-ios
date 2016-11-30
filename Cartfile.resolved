@@ -1,1 +1,2 @@
-git "https://bitbucket.org/mobgen/halo-sdk-ios.git" "4cbc4672d53f39a968d8c84afe5846cf280b53e3"
+github "jrendel/SwiftKeychainWrapper" "3.0.1"
+git "https://bitbucket.org/mobgen/halo-sdk-ios.git" "c0d14e1b170d97ebe9368580084ca63b284eeb37"
