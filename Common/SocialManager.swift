@@ -32,7 +32,7 @@ public class SocialManager: NSObject, HaloManager {
 
 public extension Manager {
     
-    open static let social: SocialManager = {
+    public static let social: SocialManager = {
         return SocialManager()
     }()
     
