@@ -147,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002E62441DD233D100B4CE78 /* Halo.framework in Frameworks */,
 				002FAEA61DDE11F5002A10ED /* HaloSocial.framework in Frameworks */,
 				002E62651DD4852D00B4CE78 /* Security.framework in Frameworks */,
 				002EDD4D1DEEEF970022F96D /* GoogleSymbolUtilities.framework in Frameworks */,
@@ -164,7 +165,6 @@
 				002EDD5A1DEEF0B60022F96D /* FirebaseInstanceID.framework in Frameworks */,
 				002E624E1DD237FE00B4CE78 /* GoogleSignIn.framework in Frameworks */,
 				002E624F1DD237FE00B4CE78 /* GoogleSignInDependencies.framework in Frameworks */,
-				002E62441DD233D100B4CE78 /* Halo.framework in Frameworks */,
 				002EDD571DEEF0B60022F96D /* FirebaseAnalytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,8 +173,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				002EDD491DEEEA1B0022F96D /* SwiftKeychainWrapper.framework in Frameworks */,
 				002EDD071DED9BDD0022F96D /* Halo.framework in Frameworks */,
+				002EDD491DEEEA1B0022F96D /* SwiftKeychainWrapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
