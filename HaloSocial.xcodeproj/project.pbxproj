@@ -62,6 +62,23 @@
 		007B4C351DDF1A8C00CE680C /* FBSDKLoginKit.framework in Resources */ = {isa = PBXBuildFile; fileRef = 002E623D1DD2307E00B4CE78 /* FBSDKLoginKit.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		005271121DEF2B31005826B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 002E62071DD1E32900B4CE78 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 002E626E1DD622A700B4CE78;
+			remoteInfo = HaloSocial;
+		};
+		005271141DEF2B36005826B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 002E62071DD1E32900B4CE78 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 002E626E1DD622A700B4CE78;
+			remoteInfo = HaloSocial;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		005270F01DEF134B005826B7 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -353,6 +370,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				005271151DEF2B36005826B7 /* PBXTargetDependency */,
 			);
 			name = HaloSocialFacebook;
 			productName = HaloSocial;
@@ -372,6 +390,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				005271131DEF2B31005826B7 /* PBXTargetDependency */,
 			);
 			name = HaloSocialGoogle;
 			productName = HaloSocialGooglePlus;
@@ -503,6 +522,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		005271131DEF2B31005826B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 002E626E1DD622A700B4CE78 /* HaloSocial */;
+			targetProxy = 005271121DEF2B31005826B7 /* PBXContainerItemProxy */;
+		};
+		005271151DEF2B36005826B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 002E626E1DD622A700B4CE78 /* HaloSocial */;
+			targetProxy = 005271141DEF2B36005826B7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		002E62161DD1E32900B4CE78 /* Debug */ = {
