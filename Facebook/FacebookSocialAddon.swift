@@ -45,13 +45,21 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, SocialProvid
     
     // MARK : Addon methods.
     
-    public func setup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) { }
+    public func setup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) {
+        LogMessage(message: "facebook setup", level: .info).print()
+    }
     
-    public func startup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) { }
+    public func startup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) {
+        LogMessage(message: "facebook startup", level: .info).print()
+    }
     
-    public func willRegisterAddon(haloCore core: CoreManager) { }
+    public func willRegisterAddon(haloCore core: CoreManager) {
+        LogMessage(message: "facebook willRegisterAddon", level: .info).print()
+    }
     
-    public func didRegisterAddon(haloCore core: CoreManager) { }
+    public func didRegisterAddon(haloCore core: CoreManager) {
+        LogMessage(message: "facebook didRegisterAddon", level: .info).print()
+    }
     
     // MARK : DeeplinkingAddon methods.
     
