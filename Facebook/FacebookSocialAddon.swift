@@ -8,11 +8,11 @@
 
 import Foundation
 import Halo
+import HaloSocial
 import FacebookCore
 import FacebookLogin
 
-@objc(HaloFacebookSocialAddon)
-class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, SocialProvider {
+public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, SocialProvider {
     
     enum FacebookSocialAddonError {
         case Error
@@ -41,25 +41,25 @@ class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, SocialProvider {
         }
     }
     
-    var addonName: String = "FacebookSocialAddon"
+    public var addonName: String = "FacebookSocialAddon"
     
     // MARK : Addon methods.
     
-    func setup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) { }
+    public func setup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) { }
     
-    func startup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) { }
+    public func startup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) { }
     
-    func willRegisterAddon(haloCore core: CoreManager) { }
+    public func willRegisterAddon(haloCore core: CoreManager) { }
     
-    func didRegisterAddon(haloCore core: CoreManager) { }
+    public func didRegisterAddon(haloCore core: CoreManager) { }
     
     // MARK : DeeplinkingAddon methods.
     
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+    public func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
         return false
     }
     
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+    public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return false
     }    
     
@@ -76,7 +76,7 @@ class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, SocialProvider {
     }
 }
 
-extension SocialManager {
+public extension SocialManager {
     
     private var facebookSocialAddon: FacebookSocialAddon? {
         return Manager.core.addons.filter { $0 is FacebookSocialAddon }.first as? FacebookSocialAddon
