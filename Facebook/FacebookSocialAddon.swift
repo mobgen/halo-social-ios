@@ -47,10 +47,12 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, SocialProvid
     
     public func setup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) {
         LogMessage(message: "facebook setup", level: .info).print()
+        handler?(self, true)
     }
     
     public func startup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) {
         LogMessage(message: "facebook startup", level: .info).print()
+        handler?(self, true)
     }
     
     public func willRegisterAddon(haloCore core: CoreManager) {
