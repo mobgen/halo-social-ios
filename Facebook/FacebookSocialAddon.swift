@@ -70,7 +70,7 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, SocialProvid
         return nil
     }
     
-    public func authenticate(authProfile: AuthProfile, completionHandler handler: (User?, NSError?) -> Void) {
+    public func authenticate(authProfile: AuthProfile, completionHandler handler: @escaping (User?, NSError?) -> Void) {
         let request = Halo.Request<User>(router: Router.loginUser(authProfile.toDictionary()))
         try! request.responseParser(parser: userParser).responseObject(completionHandler: handler)
     }

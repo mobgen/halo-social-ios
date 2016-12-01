@@ -43,7 +43,7 @@ public class AuthProfile: NSObject {
      *  @param  password    String  Password.
      *  @param  deviceId    String  DeviceId.
      **/
-    init(email: String, password: String, deviceId: String) {
+    public init(email: String, password: String, deviceId: String) {
         self.email = email
         self.password = password
         self.deviceId = deviceId
@@ -58,7 +58,7 @@ public class AuthProfile: NSObject {
      *  @param  network     String  Social network to use.
      *  @param  deviceId    String  DeviceId.
      **/
-    init(token: String, network: Network, deviceId: String) {
+    public init(token: String, network: Network, deviceId: String) {
         self.token = token
         self.network = network.rawValue
         self.deviceId = deviceId
