@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Network: String {
+public enum Network: String {
     case Halo = "halo"
     case Facebook = "facebook"
     case Google = "google"
@@ -65,7 +65,7 @@ public class AuthProfile: NSObject {
         super.init()
     }
     
-    func toDictionary() -> [String: String] {
+    public func toDictionary() -> [String: String] {
         var dict: [String: String] = [
             Keys.DeviceId: self.deviceId,
             Keys.Network: self.network

@@ -24,18 +24,18 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, SocialProvid
         
         var errorCode: Int {
             switch self {
-            case .FacebookError:
+            case .Error:
                 return 0
-            case .FacebookCancelled:
+            case .Cancelled:
                 return 1
             }
         }
         
         var errorUserInfo: [String: AnyObject] {
             switch self {
-            case .FacebookError:
+            case .Error:
                 return [:]
-            case .FacebookCancelled:
+            case .Cancelled:
                 return [NSLocalizedDescriptionKey: "Login with Facebook cancelled by user." as AnyObject]
             }
         }
@@ -93,15 +93,15 @@ public extension SocialManager {
             case .failed(let error):
                 // 2.a. Show error.
                 print(error)
-                handler(nil, NSError(domain: FacebookSocialAddonError.errorDomain,
-                                     code: FacebookSocialAddonError.Error.errorCode,
+                handler(nil, NSError(domain: FacebookSocialAddon.FacebookSocialAddonError.errorDomain,
+                                     code: FacebookSocialAddon.FacebookSocialAddonError.Error.errorCode,
                                      userInfo: [NSLocalizedDescriptionKey: error.localizedDescription]))
             case .cancelled:
                 // 2.b. Show error.
                 print("User cancelled login")
-                handler(nil, NSError(domain: FacebookSocialAddonError.errorDomain,
-                                     code: FacebookSocialAddonError.Cancelled.errorCode,
-                                     userInfo: FacebookSocialAddonError.Cancelled.errorUserInfo))
+                handler(nil, NSError(domain: FacebookSocialAddon.FacebookSocialAddonError.errorDomain,
+                                     code: FacebookSocialAddon.FacebookSocialAddonError.Cancelled.errorCode,
+                                     userInfo: FacebookSocialAddon.FacebookSocialAddonError.Cancelled.errorUserInfo))
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                 // 2.c. Ask for rest of data.
                 print("Logged in!")
