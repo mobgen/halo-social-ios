@@ -65,12 +65,12 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, SocialProvid
     
     private func userParser(_ data: Any?) -> User? {
         if let dict = data as? [String: Any] {
-            return User.fromDictionary(dict: dict)
+            return try! User.fromDictionary(dict)
         }
         return nil
     }
     
-    public func authenticate(authProfile: AuthProfile, completionHandler handler: (User?, NSError?) -> Void) {
+    public func authenticate(authProfile: AuthProfile, completionHandler handler: @escaping (User?, NSError?) -> Void) {
         let request = Halo.Request<User>(router: Router.loginUser(authProfile.toDictionary()))
         try! request.responseParser(parser: userParser).responseObject { (_, result) in
             switch result {
@@ -109,13 +109,15 @@ public extension SocialManager {
                 handler(nil, NSError(domain: FacebookSocialAddon.FacebookSocialAddonError.errorDomain,
                                      code: FacebookSocialAddon.FacebookSocialAddonError.Cancelled.errorCode,
                                      userInfo: FacebookSocialAddon.FacebookSocialAddonError.Cancelled.errorUserInfo))
-            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+            case .success(_, _, let accessToken):
                 // 2.c. Ask for rest of data.
                 print("Logged in!")
                 let authProfile = AuthProfile(token: accessToken.authenticationToken,
                                               network: Network.Facebook,
                                               deviceId: Manager.core.device?.id ?? "")
-                facebookSocialAddon.authenticate(authProfile: authProfile, completionHandler: handler)
+                if let facebookSocialAddon = self.facebookSocialAddon {
+                    facebookSocialAddon.authenticate(authProfile: authProfile, completionHandler: handler)
+                }
             }
         }
         

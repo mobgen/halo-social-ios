@@ -11,7 +11,7 @@ import Foundation
 @objc
 public class HaloSocialProvider: NSObject, SocialProvider {
 
-    public func authenticate(authProfile: AuthProfile, completionHandler handler: (User?, NSError?) -> Void) {
+    public func authenticate(authProfile: AuthProfile, completionHandler handler: @escaping (User?, NSError?) -> Void) {
         
     }
     
