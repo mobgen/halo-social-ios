@@ -11,6 +11,7 @@ import Halo
 import HaloSocial
 import FacebookCore
 import FacebookLogin
+import FBSDKLoginKit
 
 public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, SocialProvider {
     
@@ -66,11 +67,11 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, SocialProvid
     // MARK : DeeplinkingAddon methods.
     
     public func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-        return false
+        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
     }
     
     public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        return false
+        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
     }    
     
     private func userParser(_ data: Any?) -> User? {
