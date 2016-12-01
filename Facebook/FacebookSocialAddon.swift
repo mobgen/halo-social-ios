@@ -14,7 +14,7 @@ import FacebookLogin
 
 public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, SocialProvider {
     
-    enum FacebookSocialAddonError {
+    public enum FacebookSocialAddonError {
         case Error
         case Cancelled
         
@@ -70,9 +70,16 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, SocialProvid
         return nil
     }
     
-    public func authenticate(authProfile: AuthProfile, completionHandler handler: @escaping (User?, NSError?) -> Void) {
+    public func authenticate(authProfile: AuthProfile, completionHandler handler: (User?, NSError?) -> Void) {
         let request = Halo.Request<User>(router: Router.loginUser(authProfile.toDictionary()))
-        try! request.responseParser(parser: userParser).responseObject(completionHandler: handler)
+        try! request.responseParser(parser: userParser).responseObject { (_, result) in
+            switch result {
+            case .success(let user, _):
+                handler(user, nil)
+            case .failure(let error):
+                handler(nil, error)
+            }
+        }
     }
 }
 
@@ -108,7 +115,7 @@ public extension SocialManager {
                 let authProfile = AuthProfile(token: accessToken.authenticationToken,
                                               network: Network.Facebook,
                                               deviceId: Manager.core.device?.id ?? "")
-                SocialManager.facebookProvider.authenticate(authProfile: authProfile, completionHandler: handler)
+                facebookSocialAddon.authenticate(authProfile: authProfile, completionHandler: handler)
             }
         }
         

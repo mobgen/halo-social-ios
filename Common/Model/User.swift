@@ -35,7 +35,7 @@ public class User: NSObject {
         super.init()
     }
     
-    class func fromDictionary(_ dict: [String: Any]) throws -> User {
+    public class func fromDictionary(_ dict: [String: Any]) throws -> User {
         var t: Token
         if let tokenDict = dict[Keys.Token] as? [String: Any] {
             t = Token.fromDictionary(tokenDict)
