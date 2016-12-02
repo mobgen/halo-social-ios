@@ -76,12 +76,14 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
     
     // MARK : LifecycleAddon methods.
     
-    public func applicationWillFinishLaunching(_ app: UIApplication, core: Halo.CoreManager) -> Bool { }
+    public func applicationWillFinishLaunching(_ app: UIApplication, core: Halo.CoreManager) -> Bool {
+        return true
+    }
     
-    func applicationDidFinishLaunching(_ app: UIApplication,
+    public func applicationDidFinishLaunching(_ app: UIApplication,
                                        core: Halo.CoreManager,
                                        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {
-        FBSDKApplicationDelegate.sharedInstance().application(app, didFinishLaunchingWithOptions: launchOptions)
+        return FBSDKApplicationDelegate.sharedInstance().application(app, didFinishLaunchingWithOptions: launchOptions)
     }
     
     public func applicationDidEnterBackground(_ app: UIApplication, core: Halo.CoreManager) -> Void { }
