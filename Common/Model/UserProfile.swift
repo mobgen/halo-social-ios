@@ -20,7 +20,7 @@ public class UserProfile: NSObject {
         static let PhotoUrl = "photoUrl"
     }
     
-    var identifiedId: String
+    var identifiedId: String?
     var email: String
     var profilePictureUrl: String?
     var displayName: String? {
@@ -41,7 +41,7 @@ public class UserProfile: NSObject {
         return "[UserProfile] Id: \(identifiedId) | Email: \(email) | DisplayName: \(displayName)"
     }
     
-    public init(id: String, email: String, name: String, surname: String, displayName: String?, profilePictureUrl: String?) {
+    public init(id: String?, email: String, name: String, surname: String, displayName: String?, profilePictureUrl: String?) {
         self.identifiedId = id
         self.email = email
         self.name = name
@@ -53,14 +53,9 @@ public class UserProfile: NSObject {
     
     class func fromDictionary(_ dict: [String: Any]) -> UserProfile {
         
-        var identifiedIdString: String = ""
         var emailString: String = ""
         var nameString: String = ""
         var surnameString: String = ""
-        
-        if let id = dict[Keys.Id] as? String {
-            identifiedIdString = id
-        }
         
         if let email = dict[Keys.Email] as? String {
             emailString = email
@@ -74,18 +69,21 @@ public class UserProfile: NSObject {
             surnameString = surname
         }
         
-        return UserProfile(id: identifiedIdString, email: emailString, name: nameString,
+        return UserProfile(id: dict[Keys.Id] as? String, email: emailString, name: nameString,
                            surname: surnameString, displayName: dict[Keys.DisplayName] as? String,
                            profilePictureUrl: dict[Keys.PhotoUrl] as? String)
     }
     
     public func toDictionary() -> [String: String] {
         var dict: [String: String] = [
-            Keys.Id: self.identifiedId,
             Keys.Email: self.email,
             Keys.Name: self.name,
             Keys.Surname: self.surname
         ]
+        
+        if let identifiedId = self.identifiedId {
+            dict.updateValue(identifiedId, forKey: Keys.Id)
+        }
         
         if let displayName = self.displayName {
             dict.updateValue(displayName, forKey: Keys.DisplayName)
