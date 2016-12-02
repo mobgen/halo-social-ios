@@ -12,6 +12,6 @@ import Halo
 @objc
 public protocol SocialProvider {
     
-    func authenticate(authProfile: AuthProfile, completionHandler handler: (User?, NSError?) -> Void) -> Void
+    func authenticate(authProfile: AuthProfile, completionHandler handler: @escaping (User?, NSError?) -> Void) -> Void
     
 }

@@ -71,7 +71,7 @@ public class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDS
 
     // MARK: SocialProvider
     
-    public func authenticate(authProfile: AuthProfile, completionHandler handler: (User?, NSError?) -> Void) {
+    public func authenticate(authProfile: AuthProfile, completionHandler handler: @escaping (User?, NSError?) -> Void) {
         
     }
     

@@ -1,2 +1,5 @@
+github "BoltsFramework/Bolts-ObjC" "1.8.4"
 github "jrendel/SwiftKeychainWrapper" "3.0.1"
-git "https://bitbucket.org/mobgen/halo-sdk-ios.git" "c0d14e1b170d97ebe9368580084ca63b284eeb37"
+github "facebook/facebook-ios-sdk" "sdk-version-4.18.0"
+git "https://bitbucket.org/mobgen/halo-sdk-ios.git" "d28fa9c7b91345128780e98cd0bdab1f0fe751a2"
+github "facebook/Facebook-SDK-Swift" "9af12818fa7e6a40f9ecb044e307f171b56f9ae9"
