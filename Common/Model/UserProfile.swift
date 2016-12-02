@@ -78,4 +78,23 @@ public class UserProfile: NSObject {
                            surname: surnameString, displayName: dict[Keys.DisplayName] as? String,
                            profilePictureUrl: dict[Keys.PhotoUrl] as? String)
     }
+    
+    public func toDictionary() -> [String: String] {
+        var dict: [String: String] = [
+            Keys.Id: self.identifiedId,
+            Keys.Email: self.email,
+            Keys.Name: self.name,
+            Keys.Surname: self.surname
+        ]
+        
+        if let displayName = self.displayName {
+            dict.updateValue(displayName, forKey: Keys.DisplayName)
+        }
+        
+        if let profilePictureUrl = self.profilePictureUrl {
+            dict.updateValue(profilePictureUrl, forKey: Keys.PhotoUrl)
+        }
+        
+        return dict
+    }
 }
