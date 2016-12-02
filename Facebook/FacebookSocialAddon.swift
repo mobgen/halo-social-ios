@@ -13,7 +13,7 @@ import FacebookCore
 import FacebookLogin
 import FBSDKLoginKit
 
-public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, SocialProvider {
+public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.LifecycleAddon, SocialProvider {
     
     public enum FacebookSocialAddonError {
         case Error
@@ -72,14 +72,23 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, SocialProvid
     
     public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
-    }    
-    
-    private func userParser(_ data: Any?) -> User? {
-        if let dict = data as? [String: Any] {
-            return try! User.fromDictionary(dict)
-        }
-        return nil
     }
+    
+    // MARK : LifecycleAddon methods.
+    
+    public func applicationWillFinishLaunching(_ app: UIApplication, core: Halo.CoreManager) -> Bool { }
+    
+    func applicationDidFinishLaunching(_ app: UIApplication,
+                                       core: Halo.CoreManager,
+                                       didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {
+        FBSDKApplicationDelegate.sharedInstance().application(app, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    public func applicationDidEnterBackground(_ app: UIApplication, core: Halo.CoreManager) -> Void { }
+    
+    public func applicationDidBecomeActive(_ app: UIApplication, core: Halo.CoreManager) -> Void { }
+    
+    // MARK : Social Provider methods.
     
     public func authenticate(authProfile: AuthProfile, completionHandler handler: @escaping (User?, NSError?) -> Void) {
         let request = Halo.Request<User>(router: Router.loginUser(authProfile.toDictionary()))
@@ -92,6 +101,16 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, SocialProvid
             }
         }
     }
+    
+    // MARK : Private methods.
+    
+    private func userParser(_ data: Any?) -> User? {
+        if let dict = data as? [String: Any] {
+            return try! User.fromDictionary(dict)
+        }
+        return nil
+    }
+    
 }
 
 public extension SocialManager {
