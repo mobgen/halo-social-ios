@@ -90,39 +90,7 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
     
     public func applicationDidBecomeActive(_ app: UIApplication, core: Halo.CoreManager) -> Void { }
     
-    // MARK : Social Provider methods.
-    
-    public func authenticate(authProfile: AuthProfile, completionHandler handler: @escaping (User?, NSError?) -> Void) {
-        let request = Halo.Request<User>(router: Router.loginUser(authProfile.toDictionary()))
-        try! request.responseParser(parser: userParser).responseObject { (_, result) in
-            switch result {
-            case .success(let user, _):
-                handler(user, nil)
-            case .failure(let error):
-                handler(nil, error)
-            }
-        }
-    }
-    
-    // MARK : Private methods.
-    
-    private func userParser(_ data: Any?) -> User? {
-        if let dict = data as? [String: Any] {
-            return User.fromDictionary(dict)
-        }
-        return nil
-    }
-    
-}
-
-public extension SocialManager {
-    
-    private var facebookSocialAddon: FacebookSocialAddon? {
-        return Manager.core.addons.filter { $0 is FacebookSocialAddon }.first as? FacebookSocialAddon
-    }
-    
-    func loginWithFacebook(viewController: UIViewController? = nil, completionHandler handler: @escaping (User?, NSError?) -> Void) {
-        
+    public func login(viewController: UIViewController? = nil, completionHandler handler: @escaping (User?, NSError?) -> Void) {
         // 1. Start login with facebook
         let loginManager = LoginManager()
         loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: viewController) {
@@ -147,12 +115,28 @@ public extension SocialManager {
                 let authProfile = AuthProfile(token: accessToken.authenticationToken,
                                               network: Network.Facebook,
                                               deviceId: Manager.core.device?.id ?? "")
-                if let facebookSocialAddon = self.facebookSocialAddon {
-                    facebookSocialAddon.authenticate(authProfile: authProfile, completionHandler: handler)
-                }
+                self.authenticate(authProfile: authProfile, completionHandler: handler)
             }
         }
+    }
+    
+}
+
+public extension SocialManager {
+    
+    private var facebookSocialAddon: FacebookSocialAddon? {
+        return Manager.core.addons.filter { $0 is FacebookSocialAddon }.first as? FacebookSocialAddon
+    }
+    
+    func loginWithFacebook(viewController: UIViewController? = nil, completionHandler handler: @escaping (User?, NSError?) -> Void) {
+        guard
+            let facebookSocialAddon = self.facebookSocialAddon
+        else {
+            LogMessage(message: "No FacebookSocialAddon has been configured and registered.", level: .error).print()
+            return
+        }
         
+        facebookSocialAddon.login(viewController: viewController, completionHandler: handler)
     }
     
 }

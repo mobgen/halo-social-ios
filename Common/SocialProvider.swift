@@ -9,9 +9,33 @@
 import Foundation
 import Halo
 
-@objc
 public protocol SocialProvider {
     
     func authenticate(authProfile: AuthProfile, completionHandler handler: @escaping (User?, NSError?) -> Void) -> Void
+    
+}
+
+public extension SocialProvider {
+    
+    func authenticate(authProfile: AuthProfile, completionHandler handler: @escaping (User?, NSError?) -> Void) {
+        let request = Halo.Request<User>(router: Router.loginUser(authProfile.toDictionary()))
+        try! request.responseParser(parser: userParser).responseObject { (_, result) in
+            switch result {
+            case .success(let user, _):
+                handler(user, nil)
+            case .failure(let error):
+                handler(nil, error)
+            }
+        }
+    }
+    
+    // MARK : Private methods.
+    
+    private func userParser(_ data: Any?) -> User? {
+        if let dict = data as? [String: Any] {
+            return User.fromDictionary(dict)
+        }
+        return nil
+    }
     
 }
