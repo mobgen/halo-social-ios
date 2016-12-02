@@ -41,7 +41,6 @@
 		002FAEA51DDE11EF002A10ED /* HaloSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E626F1DD622A700B4CE78 /* HaloSocial.framework */; };
 		002FAEA61DDE11F5002A10ED /* HaloSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E626F1DD622A700B4CE78 /* HaloSocial.framework */; };
 		007B4C2A1DDF0AD600CE680C /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B4C291DDF0AD600CE680C /* SocialManager.swift */; };
-		007B4C2E1DDF128700CE680C /* HaloSocialProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B4C2D1DDF128700CE680C /* HaloSocialProvider.swift */; };
 		A507F7A21DEF2F8400BE8E7F /* FacebookSocialAddon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F7A01DEF1A8A00BE8E7F /* FacebookSocialAddon.swift */; };
 		A526841A1DEEDE0300F974F9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52684161DEEDE0300F974F9 /* Bolts.framework */; };
 		A526841B1DEEDE0300F974F9 /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52684171DEEDE0300F974F9 /* FacebookCore.framework */; };
@@ -104,7 +103,6 @@
 		002FAE9C1DDE0CA8002A10ED /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		002FAE9F1DDE10F2002A10ED /* SocialProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialProvider.swift; sourceTree = "<group>"; };
 		007B4C291DDF0AD600CE680C /* SocialManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialManager.swift; sourceTree = "<group>"; };
-		007B4C2D1DDF128700CE680C /* HaloSocialProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HaloSocialProvider.swift; sourceTree = "<group>"; };
 		A507F7A01DEF1A8A00BE8E7F /* FacebookSocialAddon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookSocialAddon.swift; sourceTree = "<group>"; };
 		A52684161DEEDE0300F974F9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../Carthage/Build/iOS/Bolts.framework; sourceTree = "<group>"; };
 		A52684171DEEDE0300F974F9 /* FacebookCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookCore.framework; path = ../../Carthage/Build/iOS/FacebookCore.framework; sourceTree = "<group>"; };
@@ -279,7 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				002FAE9F1DDE10F2002A10ED /* SocialProvider.swift */,
-				007B4C2D1DDF128700CE680C /* HaloSocialProvider.swift */,
 			);
 			name = Provider;
 			sourceTree = "<group>";
@@ -475,7 +472,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				007B4C2E1DDF128700CE680C /* HaloSocialProvider.swift in Sources */,
 				007B4C2A1DDF0AD600CE680C /* SocialManager.swift in Sources */,
 				002FAE9D1DDE0CA8002A10ED /* User.swift in Sources */,
 				002FAE991DDE0BD0002A10ED /* AuthProfile.swift in Sources */,
