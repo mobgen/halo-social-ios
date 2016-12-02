@@ -41,7 +41,7 @@ public class UserProfile: NSObject {
         return "[UserProfile] Id: \(identifiedId) | Email: \(email) | DisplayName: \(displayName)"
     }
     
-    init(id: String, email: String, name: String, surname: String, displayName: String?, profilePictureUrl: String?) {
+    public init(id: String, email: String, name: String, surname: String, displayName: String?, profilePictureUrl: String?) {
         self.identifiedId = id
         self.email = email
         self.name = name
