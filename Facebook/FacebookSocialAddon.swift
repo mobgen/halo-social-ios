@@ -82,9 +82,7 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
     
     public func applicationDidFinishLaunching(_ app: UIApplication,
                                        core: Halo.CoreManager,
-                                       didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {
-        let loginManager = LoginManager()
-        loginManager.logOut()
+                                       didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {        
         return FBSDKApplicationDelegate.sharedInstance().application(app, didFinishLaunchingWithOptions: launchOptions)
     }
     

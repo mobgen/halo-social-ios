@@ -31,7 +31,9 @@ public class UserProfile: NSObject {
             return self.displayName
         }
         set {
-            self.displayName = newValue
+            if let newValue = newValue {
+                self.displayName = newValue
+            }
         }
     }
     var name: String
