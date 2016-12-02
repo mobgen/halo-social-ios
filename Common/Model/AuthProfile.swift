@@ -8,10 +8,19 @@
 
 import Foundation
 
-public enum Network: String {
-    case Halo = "halo"
-    case Facebook = "facebook"
-    case Google = "google"
+public enum Network: Int {
+    case Halo, Facebook, Google
+    
+    var description: String {
+        switch self {
+        case .Halo:
+            return "halo"
+        case .Facebook:
+            return "facebook"
+        case .Google:
+            return "google"
+        }
+    }
 }
 
 @objc(HaloAuthProfile)
@@ -47,7 +56,7 @@ public class AuthProfile: NSObject {
         self.email = email
         self.password = password
         self.deviceId = deviceId
-        self.network = Network.Halo.rawValue
+        self.network = Network.Halo.description
         super.init()
     }
     
@@ -60,7 +69,7 @@ public class AuthProfile: NSObject {
      **/
     public init(token: String, network: Network, deviceId: String) {
         self.token = token
-        self.network = network.rawValue
+        self.network = network.description
         self.deviceId = deviceId
         super.init()
     }

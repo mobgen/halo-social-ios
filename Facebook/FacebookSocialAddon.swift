@@ -108,7 +108,7 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
     
     private func userParser(_ data: Any?) -> User? {
         if let dict = data as? [String: Any] {
-            return try! User.fromDictionary(dict)
+            return User.fromDictionary(dict)
         }
         return nil
     }
