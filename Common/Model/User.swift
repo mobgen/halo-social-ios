@@ -12,11 +12,6 @@ import Halo
 @objc(HaloUser)
 public class User: NSObject {
     
-    enum UserError: Error {
-        case TokenNotFound
-        case UserProfileNotFound
-    }
-    
     struct Keys {
         static let Token = "token"
         static let UserProfile = "user"
@@ -35,19 +30,19 @@ public class User: NSObject {
         super.init()
     }
     
-    public class func fromDictionary(_ dict: [String: Any]) throws -> User {
+    public class func fromDictionary(_ dict: [String: Any]) -> User? {
         var t: Token
         if let tokenDict = dict[Keys.Token] as? [String: Any] {
             t = Token.fromDictionary(tokenDict)
         } else {
-            throw UserError.TokenNotFound
+            return nil
         }
         
         var up: UserProfile
         if let userProfileDict = dict[Keys.UserProfile] as? [String: Any] {
             up = UserProfile.fromDictionary(userProfileDict)
         } else {
-            throw UserError.UserProfileNotFound
+            return nil
         }
         
         return User(profile: up, token: t)

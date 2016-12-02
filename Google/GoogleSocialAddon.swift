@@ -18,7 +18,7 @@ public class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDS
     public var addonName: String = "GoogleSocialAddon"
     
     public func setup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) {
-        
+        handler?(self, true)
     }
     
     public func startup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) {
@@ -31,6 +31,8 @@ public class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDS
         GIDSignIn.sharedInstance().delegate = self
         
         LogMessage(message: "Configured GoogleSignIn with clientId: \(GIDSignIn.sharedInstance().clientID)", level: .info).print()
+        
+        handler?(self, true)
     }
     
     public func willRegisterAddon(haloCore core: CoreManager) {

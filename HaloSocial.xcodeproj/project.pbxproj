@@ -40,17 +40,6 @@
 		002FAEA01DDE10F2002A10ED /* SocialProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FAE9F1DDE10F2002A10ED /* SocialProvider.swift */; };
 		002FAEA51DDE11EF002A10ED /* HaloSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E626F1DD622A700B4CE78 /* HaloSocial.framework */; };
 		002FAEA61DDE11F5002A10ED /* HaloSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E626F1DD622A700B4CE78 /* HaloSocial.framework */; };
-		005270F11DEF1357005826B7 /* FirebaseAnalytics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 002EDD501DEEF0B60022F96D /* FirebaseAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		005270F21DEF1359005826B7 /* FirebaseAuth.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 002EDD511DEEF0B60022F96D /* FirebaseAuth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		005270F31DEF135C005826B7 /* FirebaseCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 002EDD521DEEF0B60022F96D /* FirebaseCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		005270F41DEF1360005826B7 /* FirebaseInstanceID.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 002EDD531DEEF0B60022F96D /* FirebaseInstanceID.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		005270F51DEF1363005826B7 /* GoogleInterchangeUtilities.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 002EDD541DEEF0B60022F96D /* GoogleInterchangeUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		005270F61DEF1368005826B7 /* GoogleSymbolUtilities.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 002EDD4C1DEEEF970022F96D /* GoogleSymbolUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		005270F71DEF136D005826B7 /* GoogleAppUtilities.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 002EDD4A1DEEEF840022F96D /* GoogleAppUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		005270F81DEF1374005826B7 /* GoogleSignIn.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 002E62491DD237FE00B4CE78 /* GoogleSignIn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		005270F91DEF1377005826B7 /* GoogleSignInDependencies.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 002E624A1DD237FE00B4CE78 /* GoogleSignInDependencies.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		005270FA1DEF17C8005826B7 /* Firebase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 002EDD4F1DEEF0B60022F96D /* Firebase.h */; };
-		005270FB1DEF17CA005826B7 /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = 002EDD551DEEF0B60022F96D /* module.modulemap */; };
 		007B4C2A1DDF0AD600CE680C /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B4C291DDF0AD600CE680C /* SocialManager.swift */; };
 		007B4C2E1DDF128700CE680C /* HaloSocialProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B4C2D1DDF128700CE680C /* HaloSocialProvider.swift */; };
 		A507F7A21DEF2F8400BE8E7F /* FacebookSocialAddon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F7A01DEF1A8A00BE8E7F /* FacebookSocialAddon.swift */; };
@@ -76,29 +65,6 @@
 			remoteInfo = HaloSocial;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		005270F01DEF134B005826B7 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				005270FB1DEF17CA005826B7 /* module.modulemap in CopyFiles */,
-				005270FA1DEF17C8005826B7 /* Firebase.h in CopyFiles */,
-				005270F11DEF1357005826B7 /* FirebaseAnalytics.framework in CopyFiles */,
-				005270F21DEF1359005826B7 /* FirebaseAuth.framework in CopyFiles */,
-				005270F31DEF135C005826B7 /* FirebaseCore.framework in CopyFiles */,
-				005270F41DEF1360005826B7 /* FirebaseInstanceID.framework in CopyFiles */,
-				005270F51DEF1363005826B7 /* GoogleInterchangeUtilities.framework in CopyFiles */,
-				005270F61DEF1368005826B7 /* GoogleSymbolUtilities.framework in CopyFiles */,
-				005270F71DEF136D005826B7 /* GoogleAppUtilities.framework in CopyFiles */,
-				005270F81DEF1374005826B7 /* GoogleSignIn.framework in CopyFiles */,
-				005270F91DEF1377005826B7 /* GoogleSignInDependencies.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		002E62101DD1E32900B4CE78 /* HaloSocialFacebook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaloSocialFacebook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -386,7 +352,6 @@
 				002E621C1DD1E5E900B4CE78 /* Frameworks */,
 				002E621D1DD1E5E900B4CE78 /* Headers */,
 				002E621E1DD1E5E900B4CE78 /* Resources */,
-				005270F01DEF134B005826B7 /* CopyFiles */,
 			);
 			buildRules = (
 			);
