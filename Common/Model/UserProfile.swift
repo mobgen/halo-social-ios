@@ -25,10 +25,10 @@ public class UserProfile: NSObject {
     var profilePictureUrl: String?
     var displayName: String? {
         get {
-            if self.displayName == nil {
-                return name
+            if let displayName = self.displayName {
+                return displayName
             }
-            return self.displayName
+            return self.name
         }
         set {
             if let newValue = newValue {
