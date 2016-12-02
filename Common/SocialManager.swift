@@ -24,12 +24,12 @@ public class SocialManager: NSObject, HaloManager {
     }
     
     @objc(registerWithAuthProfile:userProfile:completionHandler:)
-    public func register(authProfile: AuthProfile, userProfile: UserProfile, completionHandler handler: @escaping (User?, NSError?) -> Void) -> Void {
-        let request = Halo.Request<User>(router: Router.registerUser(["auth": authProfile.toDictionary(), "profile": userProfile.toDictionary()]))
+    public func register(authProfile: AuthProfile, userProfile: UserProfile, completionHandler handler: @escaping (UserProfile?, NSError?) -> Void) -> Void {
+        let request = Halo.Request<UserProfile>(router: Router.registerUser(["auth": authProfile.toDictionary(), "profile": userProfile.toDictionary()]))
         try! request.responseParser(parser: userParser).responseObject { (_, result) in
             switch result {
-            case .success(let user, _):
-                handler(user, nil)
+            case .success(let userProfile, _):
+                handler(userProfile, nil)
             case .failure(let error):
                 handler(nil, error)
             }
@@ -38,9 +38,9 @@ public class SocialManager: NSObject, HaloManager {
     
     // MARK : Private methods.
     
-    private func userParser(_ data: Any?) -> User? {
+    private func userParser(_ data: Any?) -> UserProfile? {
         if let dict = data as? [String: Any] {
-            return User.fromDictionary(dict)
+            return UserProfile.fromDictionary(dict)
         }
         return nil
     }
