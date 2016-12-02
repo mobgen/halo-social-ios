@@ -82,7 +82,7 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
     
     public func applicationDidFinishLaunching(_ app: UIApplication,
                                        core: Halo.CoreManager,
-                                       didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {
+                                       didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {        
         return FBSDKApplicationDelegate.sharedInstance().application(app, didFinishLaunchingWithOptions: launchOptions)
     }
     
@@ -114,7 +114,7 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
                 print("Logged in!")
                 let authProfile = AuthProfile(token: accessToken.authenticationToken,
                                               network: Network.Facebook,
-                                              deviceId: Manager.core.device?.id ?? "")
+                                              deviceId: Manager.core.device?.alias ?? "")
                 self.authenticate(authProfile: authProfile, completionHandler: handler)
             }
         }
