@@ -11,7 +11,6 @@ import Halo
 import HaloSocial
 import FacebookCore
 import FacebookLogin
-import FBSDKLoginKit
 
 public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.LifecycleAddon, SocialProvider {
     
@@ -71,12 +70,17 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
     
     // MARK : DeeplinkingAddon methods.
     
+    
     public func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        if #available(iOS 9.0, *) {
+            return SDKApplicationDelegate.shared.application(app, open: url, options: options)
+        } else {
+            return SDKApplicationDelegate.shared.application(app, open: url, sourceApplication: Bundle.main.bundleIdentifier, annotation: [:])
+        }
     }
     
     public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        return SDKApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
     // MARK : LifecycleAddon methods.
@@ -87,8 +91,8 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
     
     public func applicationDidFinishLaunching(_ app: UIApplication,
                                        core: Halo.CoreManager,
-                                       didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {        
-        return FBSDKApplicationDelegate.sharedInstance().application(app, didFinishLaunchingWithOptions: launchOptions)
+                                       didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {
+        return SDKApplicationDelegate.shared.application(app, didFinishLaunchingWithOptions: launchOptions)
     }
     
     public func applicationDidEnterBackground(_ app: UIApplication, core: Halo.CoreManager) -> Void { }
