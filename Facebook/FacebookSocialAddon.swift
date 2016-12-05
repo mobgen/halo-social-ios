@@ -20,7 +20,7 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
         case Cancelled
         
         static var errorDomain: String {
-            return "SocialManagerError"
+            return "com.mobgen.halo"
         }
         
         var errorCode: Int {
@@ -91,6 +91,16 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
     public func applicationDidBecomeActive(_ app: UIApplication, core: Halo.CoreManager) -> Void { }
     
     public func login(viewController: UIViewController? = nil, completionHandler handler: @escaping (User?, NSError?) -> Void) {
+        
+        guard
+            let deviceAlias = Manager.core.device?.alias
+        else {
+            let message = "No device alias could be obtained"
+            LogMessage(message: message, level: .error).print()
+            handler(nil, NSError(domain: "com.mobgen.halo", code: -1, userInfo: [NSLocalizedDescriptionKey: message]))
+            return
+        }
+        
         // 1. Start login with facebook
         let loginManager = LoginManager()
         loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: viewController) {
@@ -98,23 +108,20 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
             
             switch loginResult {
             case .failed(let error):
-                // 2.a. Show error.
-                print(error)
+                LogMessage(message: "An error ocurred when user was trying to authenticate with Facebook.", level: .error).print()
                 handler(nil, NSError(domain: FacebookSocialAddon.FacebookSocialAddonError.errorDomain,
                                      code: FacebookSocialAddon.FacebookSocialAddonError.Error.errorCode,
                                      userInfo: [NSLocalizedDescriptionKey: error.localizedDescription]))
             case .cancelled:
-                // 2.b. Show error.
-                print("User cancelled login")
+                LogMessage(message: "User cancelled the authentication with Facebook.", level: .error).print()
                 handler(nil, NSError(domain: FacebookSocialAddon.FacebookSocialAddonError.errorDomain,
                                      code: FacebookSocialAddon.FacebookSocialAddonError.Cancelled.errorCode,
                                      userInfo: FacebookSocialAddon.FacebookSocialAddonError.Cancelled.errorUserInfo))
             case .success(_, _, let accessToken):
-                // 2.c. Ask for rest of data.
-                print("Logged in!")
+                LogMessage(message: "Login with Facebook succesful", level: .info).print()
                 let authProfile = AuthProfile(token: accessToken.authenticationToken,
                                               network: Network.Facebook,
-                                              deviceId: Manager.core.device?.alias ?? "")
+                                              deviceId: deviceAlias)
                 self.authenticate(authProfile: authProfile, completionHandler: handler)
             }
         }
@@ -132,7 +139,9 @@ public extension SocialManager {
         guard
             let facebookSocialAddon = self.facebookSocialAddon
         else {
-            LogMessage(message: "No FacebookSocialAddon has been configured and registered.", level: .error).print()
+            let message = "No FacebookSocialAddon has been configured and registered."
+            LogMessage(message: message, level: .error).print()
+            handler(nil, NSError(domain: "com.mobgen.halo", code: -1, userInfo: [NSLocalizedDescriptionKey: message]))
             return
         }
         
