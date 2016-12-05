@@ -60,7 +60,15 @@ public class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDS
     
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
-        guard let idToken = user.authentication?.accessToken else {
+        guard
+            error == nil
+        else {
+            LogMessage(message: error.localizedDescription, level: .error).print()
+            self.completionHandler(nil, NSError(domain: "com.mobgen.halo", code: -1, userInfo: [NSLocalizedDescriptionKey: error.localizedDescription]))
+            return
+        }
+        
+        guard let idToken = user.authentication?.idToken else {
             let message = "No token could be obtained from Google"
             LogMessage(message: message, level: .error).print()
             self.completionHandler(nil, NSError(domain: "com.mobgen.halo", code: -1, userInfo: [NSLocalizedDescriptionKey: message]))
@@ -77,7 +85,12 @@ public class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDS
         LogMessage(message: "Google token: \(idToken)", level: .info).print()
         
         let profile = AuthProfile(token: idToken, network: .Google, deviceId: deviceAlias)
-        authenticate(authProfile: profile, completionHandler: self.completionHandler)
+        authenticate(authProfile: profile) { (user, error) in
+            if error != nil {
+                signIn.signOut()
+            }
+            self.completionHandler(user, error)
+        }
     }
     
     public func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
