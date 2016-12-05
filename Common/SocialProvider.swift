@@ -22,8 +22,10 @@ public extension SocialProvider {
         try! request.responseParser(parser: userParser).responseObject { (_, result) in
             switch result {
             case .success(let user, _):
+                LogMessage(message: "The user has been successfully authenticated with Halo." , level: .info).print()
                 handler(user, nil)
             case .failure(let error):
+                LogMessage(message: "An error happened trying to authenticate the user with Halo.", error: error)
                 handler(nil, error)
             }
         }

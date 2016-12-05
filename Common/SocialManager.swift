@@ -29,8 +29,10 @@ public class SocialManager: NSObject, HaloManager {
         try! request.responseParser(parser: userParser).responseObject { (_, result) in
             switch result {
             case .success(let userProfile, _):
+                LogMessage(message: "Registration with Halo successful.", level: .info).print()
                 handler(userProfile, nil)
             case .failure(let error):
+                LogMessage(message: "An error happened when trying to register a new user with Halo .", error: error).print()
                 handler(nil, error)
             }
         }
