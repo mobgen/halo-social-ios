@@ -18,6 +18,12 @@ public class SocialManager: NSObject, HaloManager {
         
     }
     
+    /**
+     Call this method to start the login with Halo.
+     
+     - parameter authProfile:       AuthProfile with email, password, deviceId and network.
+     - parameter completionHandler: Closure to be called after completion
+     */
     @objc(loginWithHaloAuth:completionHandler:)
     public func loginWithHalo(authProfile: AuthProfile, completionHandler handler: @escaping (User?, NSError?) -> Void) -> Void {
         let request = Halo.Request<User>(router: Router.loginUser(authProfile.toDictionary()))
@@ -33,6 +39,13 @@ public class SocialManager: NSObject, HaloManager {
         }
     }
     
+    /**
+     Call this method to start the registration with Halo.
+     
+     - parameter authProfile:       AuthProfile with email, password, deviceId and network.
+     - parameter userProfile:       UserProfile with at least email, name and surname.
+     - parameter completionHandler: Closure to be called after completion
+     */
     @objc(registerWithAuthProfile:userProfile:completionHandler:)
     public func register(authProfile: AuthProfile, userProfile: UserProfile, completionHandler handler: @escaping (UserProfile?, NSError?) -> Void) -> Void {
         let request = Halo.Request<UserProfile>(router: Router.registerUser(["auth": authProfile.toDictionary(), "profile": userProfile.toDictionary()]))

@@ -179,6 +179,15 @@ public extension SocialManager {
         return Manager.core.addons.filter { $0 is FacebookSocialAddon }.first as? FacebookSocialAddon
     }
     
+    /**
+     Call this method to start the login with Facebook.
+     
+     - parameter viewController:    The viewController to present from the login window. 
+                                    If nil, the topmost view controller will be 
+                                    automatically determined as best as possible.
+     - parameter completionHandler: Closure to be called after completion
+     */
+    @objc(loginWithFacebookWithViewController:completionHandler:)
     func loginWithFacebook(viewController: UIViewController? = nil, completionHandler handler: @escaping (User?, NSError?) -> Void) {
         guard
             let facebookSocialAddon = self.facebookSocialAddon

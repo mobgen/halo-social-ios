@@ -101,6 +101,14 @@ public class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDS
 
 public extension SocialManager {
     
+    /**
+     Call this method to start the login with Google.
+     
+     - parameter uiDelegate:    GIDSignInUIDelegate is used to dispatch when the
+                                sign-in flow will display a the login viewController
+                                , dismiss it or will dispatch it.
+     - parameter completionHandler: Closure to be called after completion
+     */
     @objc(loginWithGoogleWithUIDelegate:completionHandler:)
     func loginWithGoogle(uiDelegate: GIDSignInUIDelegate, completionHandler handler: @escaping (User?, Error?) -> Void) {
         
