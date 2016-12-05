@@ -116,7 +116,7 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
         guard
             AccessToken.current == nil ||
             AccessToken.current!.grantedPermissions == nil ||
-            !AccessToken.current!.grantedPermissions!.contains(Permission(name: "email")) ?? true
+            !AccessToken.current!.grantedPermissions!.contains(Permission(name: "email"))
         else {
             // Already logged-in,  login with Halo.
             LogMessage(message: "Already logged in with Facebook.", level: .info).print()

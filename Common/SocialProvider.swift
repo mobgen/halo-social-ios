@@ -25,7 +25,7 @@ public extension SocialProvider {
                 LogMessage(message: "The user has been successfully authenticated with Halo." , level: .info).print()
                 handler(user, nil)
             case .failure(let error):
-                LogMessage(message: "An error happened trying to authenticate the user with Halo.", error: error)
+                LogMessage(message: "An error happened trying to authenticate the user with Halo.", error: error).print()
                 handler(nil, error)
             }
         }
