@@ -101,8 +101,20 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
             return
         }
         
-        // 1. Start login with facebook
         let loginManager = LoginManager()
+        
+        guard
+            AccessToken.current == nil
+        else {
+            // Already logged-in
+            LogMessage(message: "Already logged in with Facebook.", level: .info).print()
+            let authProfile = AuthProfile(token: AccessToken.current!.authenticationToken,
+                                          network: Network.Facebook,
+                                          deviceId: deviceAlias)
+            self.authenticate(authProfile: authProfile, completionHandler: handler)
+            return
+        }
+        
         loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: viewController) {
             loginResult in
             
@@ -118,7 +130,7 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
                                      code: FacebookSocialAddon.FacebookSocialAddonError.Cancelled.errorCode,
                                      userInfo: FacebookSocialAddon.FacebookSocialAddonError.Cancelled.errorUserInfo))
             case .success(_, _, let accessToken):
-                LogMessage(message: "Login with Facebook succesful", level: .info).print()
+                LogMessage(message: "Login with Facebook successful", level: .info).print()
                 let authProfile = AuthProfile(token: accessToken.authenticationToken,
                                               network: Network.Facebook,
                                               deviceId: deviceAlias)
