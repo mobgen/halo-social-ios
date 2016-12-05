@@ -18,6 +18,7 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
     public enum FacebookSocialAddonError {
         case Error
         case Cancelled
+        case PermissionEmailDenied
         
         static var errorDomain: String {
             return "com.mobgen.halo"
@@ -29,6 +30,8 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
                 return 0
             case .Cancelled:
                 return 1
+            case .PermissionEmailDenied:
+                return 2
             }
         }
         
@@ -38,6 +41,8 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
                 return [:]
             case .Cancelled:
                 return [NSLocalizedDescriptionKey: "Login with Facebook cancelled by user." as AnyObject]
+            case .PermissionEmailDenied:
+                return [NSLocalizedDescriptionKey: "User denied permission access to email." as AnyObject]
             }
         }
     }
@@ -92,6 +97,7 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
     
     public func login(viewController: UIViewController? = nil, completionHandler handler: @escaping (User?, NSError?) -> Void) {
         
+        // Check if deviceAlias exists.
         guard
             let deviceAlias = Manager.core.device?.alias
         else {
@@ -101,12 +107,14 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
             return
         }
         
-        let loginManager = LoginManager()
-        
+        // Check if user already logged in with Facebook
+        // and check if Email ReadPermission is already granted.
         guard
-            AccessToken.current == nil
+            AccessToken.current == nil ||
+            AccessToken.current!.grantedPermissions == nil ||
+            !AccessToken.current!.grantedPermissions!.contains(Permission(name: "email")) ?? true
         else {
-            // Already logged-in
+            // Already logged-in,  login with Halo.
             LogMessage(message: "Already logged in with Facebook.", level: .info).print()
             let authProfile = AuthProfile(token: AccessToken.current!.authenticationToken,
                                           network: Network.Facebook,
@@ -115,21 +123,41 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
             return
         }
         
+        // Not logged in or Email ReadPermission is not already granted.
+        let loginManager = LoginManager()
         loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: viewController) {
             loginResult in
             
             switch loginResult {
+                
+            // Error.
             case .failed(let error):
                 LogMessage(message: "An error ocurred when user was trying to authenticate with Facebook.", level: .error).print()
                 handler(nil, NSError(domain: FacebookSocialAddon.FacebookSocialAddonError.errorDomain,
                                      code: FacebookSocialAddon.FacebookSocialAddonError.Error.errorCode,
                                      userInfo: [NSLocalizedDescriptionKey: error.localizedDescription]))
+            
+            // Cancelled.
             case .cancelled:
                 LogMessage(message: "User cancelled the authentication with Facebook.", level: .error).print()
                 handler(nil, NSError(domain: FacebookSocialAddon.FacebookSocialAddonError.errorDomain,
                                      code: FacebookSocialAddon.FacebookSocialAddonError.Cancelled.errorCode,
                                      userInfo: FacebookSocialAddon.FacebookSocialAddonError.Cancelled.errorUserInfo))
-            case .success(_, _, let accessToken):
+                
+            // Success.
+            case .success(let grantedPermissions, _, let accessToken):
+                // Check if Email ReadPermission is granted.
+                guard
+                    grantedPermissions.contains(Permission(name: "email"))
+                else {
+                    LogMessage(message: "User denied permissions access to his email.", level: .info).print()
+                    handler(nil, NSError(domain: FacebookSocialAddon.FacebookSocialAddonError.errorDomain,
+                                         code: FacebookSocialAddon.FacebookSocialAddonError.PermissionEmailDenied.errorCode,
+                                         userInfo: FacebookSocialAddon.FacebookSocialAddonError.PermissionEmailDenied.errorUserInfo))
+                    return
+                }
+                
+                // Login with Halo.
                 LogMessage(message: "Login with Facebook successful", level: .info).print()
                 let authProfile = AuthProfile(token: accessToken.authenticationToken,
                                               network: Network.Facebook,
