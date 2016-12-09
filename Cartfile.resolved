@@ -1,4 +1,7 @@
 github "BoltsFramework/Bolts-ObjC" "1.8.4"
+github "Quick/Nimble" "v5.1.1"
+github "AliSoftware/OHHTTPStubs" "57feceaabf333e72b2c637dfba6c13a7a5c49619"
+github "Quick/Quick" "v1.0.0"
 github "jrendel/SwiftKeychainWrapper" "3.0.1"
 github "facebook/facebook-ios-sdk" "sdk-version-4.18.0"
 git "https://bitbucket.org/mobgen/halo-sdk-ios.git" "d28fa9c7b91345128780e98cd0bdab1f0fe751a2"
