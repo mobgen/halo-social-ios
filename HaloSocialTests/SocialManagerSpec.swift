@@ -8,49 +8,41 @@
 
 import Quick
 import Nimble
-import OHHTTPStubs
 import Halo
+import OHHTTPStubs
 @testable import HaloSocial
 
 class SocialManagerSpec: BaseSpec {
     
-    var authProfile: AuthProfile!
+    lazy var testAuthProfile: AuthProfile = {
+        return AuthProfile(email: "account@mobgen.com",
+                           password: "password123",
+                           deviceId: "randomdevicealias")
+    }()
+    
+    lazy var testUserProfile: UserProfile = {
+        return UserProfile(id: nil,
+                           email: "account@mobgen.com",
+                           name: "testName",
+                           surname: "testSurname",
+                           displayName: "testName testSurname",
+                           profilePictureUrl: nil)
+    }()
     
     override func spec() {
         
         super.spec()
         
-        let social = Halo.Manager.social
-        
-        describe("Login with Halo AuthProfile") {
+        describe("Login with Halo") {
             
-            context("with an AuthProfile") {
-                
-                var user: User?
+            context("using email and password") {
                 
                 beforeEach {
                     
-                    guard
-                        let alias = Halo.Manager.core.device?.alias
-                    else {
-                        return
-                    }
-                    
-                    self.authProfile = AuthProfile(email: "account@mobgen.com", password: "password123", deviceId: alias)
-                    
-                    stub(condition: isPath("api/segmentation/identified/login")) { (request) -> OHHTTPStubsResponse in
-                        let fixture = OHPathForFile("login_success.json", type(of: self))
-                        return OHHTTPStubsResponse(fileAtPath: fixture!, statusCode: 200, headers: ["Content-Type": "application/json"])
-                    }
-                    
-                    waitUntil { done in
-                        social.loginWithHalo(authProfile: self.authProfile) { (userResponse, error) in
-                            if error == nil {
-                                user = userResponse
-                            }
-                            done()
-                        }
-                    }
+                    stub(condition: isPath("/api/segmentation/identified/login")) { _ in
+                        let stubPath = OHPathForFile("login_success.json", type(of: self))
+                        return fixture(filePath: stubPath!, status: 200, headers: ["Content-Type":"application/json"])
+                    }.name = "Successful login stub"
                     
                 }
                 
@@ -58,16 +50,63 @@ class SocialManagerSpec: BaseSpec {
                     OHHTTPStubs.removeAllStubs()
                 }
                 
-                it("works") {
-                    let token = user?.token
+                it("logs in successfuly") {
                     
-                    expect(token?.isValid()).to(beTrue())
-                    expect(token?.isExpired()).to(beFalse())
+                    waitUntil { done in
+                        
+                        Halo.Manager.social.loginWithHalo(authProfile: self.testAuthProfile) { (userResponse, error) in
+                            
+                            expect(error).to(beNil())
+                            
+                            let token = userResponse?.token
+                            
+                            expect(token).notTo(beNil())
+                            expect(token?.isValid()).to(beTrue())
+                            expect(token?.isExpired()).to(beFalse())
+                            
+                            let userProfile = userResponse?.userProfile
+                            
+                            expect(userProfile?.email).to(equal(self.testAuthProfile.email))
+                            
+                            done()
+                        }
+                    }
                     
-                    let userProfile = user?.userProfile
-                    
-                    expect(userProfile?.email).to(equal("account@mobgen.com"))
                 }
+            }
+            
+        }
+        
+        describe("Register with Halo") {
+            
+            beforeEach {
+                
+                stub(condition: isPath("/api/segmentation/identified/register")) { _ in
+                    let stubPath = OHPathForFile("register_success.json", type(of: self))
+                    return fixture(filePath: stubPath!, status: 200, headers: ["Content-Type":"application/json"])
+                    }.name = "Successful register stub"
+                
+            }
+            
+            afterEach {
+                OHHTTPStubs.removeAllStubs()
+            }
+            
+            it("registers successfuly") {
+                
+                waitUntil { done in
+                    
+                    Halo.Manager.social.register(authProfile: self.testAuthProfile, userProfile: self.testUserProfile) { (userProfileResponse, error) in
+                        
+                        expect(error).to(beNil())
+                        expect(userProfileResponse).notTo(beNil())
+                        expect(userProfileResponse?.identifiedId).notTo(beNil())
+                        expect(userProfileResponse?.email).to(equal(self.testAuthProfile.email))
+                        
+                        done()
+                    }
+                }
+                
             }
         }
     }

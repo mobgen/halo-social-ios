@@ -9,6 +9,7 @@
 import Quick
 import Nimble
 import OHHTTPStubs
+import Halo
 @testable import HaloSocial
 
 class BaseSpec: QuickSpec {
@@ -23,6 +24,9 @@ class BaseSpec: QuickSpec {
         
         beforeSuite {
             NSLog("-- Executing before suite")
+            
+            Halo.Manager.core.appCredentials = Credentials(clientId: "halotestappclient", clientSecret: "halotestapppass")
+            Halo.Manager.core.startup()
         }
         
         afterSuite {

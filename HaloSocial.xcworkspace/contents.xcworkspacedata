@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Carthage/Checkouts/Nimble/Nimble.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../halo-sdk-ios/Halo.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:HaloSocial.xcodeproj">
    </FileRef>
 </Workspace>
