@@ -50,9 +50,9 @@ class SocialManagerSpec: BaseSpec {
                     OHHTTPStubs.removeAllStubs()
                 }
                 
-                it("logs in successfuly") {
+                it("logs in successfully") {
                     
-                    waitUntil { done in
+                    waitUntil(timeout: 2) { done in
                         
                         Halo.Manager.social.loginWithHalo(authProfile: self.testAuthProfile) { (userResponse, error) in
                             
