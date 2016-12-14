@@ -12,7 +12,7 @@ import HaloSocial
 import FacebookCore
 import FacebookLogin
 
-public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.LifecycleAddon, SocialProvider {
+public class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, SocialProvider {
     
     public enum FacebookSocialAddonError {
         case Error
