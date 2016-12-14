@@ -75,7 +75,6 @@ class FacebookSocialAddonSpec : BaseSpec {
     
     var facebookSocialAddon: FacebookSocialAddon!
     
-    
     override func spec() {
         
         super.spec()
@@ -115,14 +114,32 @@ class FacebookSocialAddonSpec : BaseSpec {
                 // Start Halo.
                 Manager.core.appCredentials = Credentials(clientId: "halotestappclient", clientSecret: "halotestapppass")
                 Manager.core.startup()
+            }
+            
+            context("without a device") {
                 
-                // Add a device for test purposes.
-                let device = Device()
-                device.alias = "randomdevicealias"
-                Manager.core.device = device
+                it("returns a nil user and an Error") {
+                    
+                    self.facebookSocialAddon.handleLoginResult(loginResult: self.successWithEmailPermissionLoginResult) {
+                        (user, error) in
+                        
+                        // user == nil.
+                        expect(user).to(beNil())
+                        // error != nil.
+                        expect(error).notTo(beNil())
+                    }
+                    
+                }
             }
             
             context("with an error from Facebook") {
+                
+                beforeEach {
+                    // Add a device for test purposes.
+                    let device = Device()
+                    device.alias = "randomdevicealias"
+                    Manager.core.device = device
+                }
                 
                 it("returns a nil user and a FacebookSocialAddonError.Error") {
                     
@@ -145,6 +162,13 @@ class FacebookSocialAddonSpec : BaseSpec {
             
             context("because user cancelled login") {
                 
+                beforeEach {
+                    // Add a device for test purposes.
+                    let device = Device()
+                    device.alias = "randomdevicealias"
+                    Manager.core.device = device
+                }
+                
                 it("returns a nil user and a FacebookSocialAddonError.Cancelled") {
                     
                     self.facebookSocialAddon.handleLoginResult(loginResult: self.cancelledLoginResult) {
@@ -164,6 +188,13 @@ class FacebookSocialAddonSpec : BaseSpec {
             }
             
             context("With success but email permission is declined") {
+                
+                beforeEach {
+                    // Add a device for test purposes.
+                    let device = Device()
+                    device.alias = "randomdevicealias"
+                    Manager.core.device = device
+                }
                 
                 it("returns a nil user and a FacebookSocialAddonError.PermissionEmailDenied") {
                     
@@ -187,6 +218,11 @@ class FacebookSocialAddonSpec : BaseSpec {
             context("With success and email permission is granted") {
                 
                 beforeEach {
+                    // Add a device for test purposes.
+                    let device = Device()
+                    device.alias = "randomdevicealias"
+                    Manager.core.device = device
+                    
                     stub(condition: isPath("/api/segmentation/identified/login")) { _ in
                         let stubPath = OHPathForFile("login_success.json", type(of: self))
                         return fixture(filePath: stubPath!, status: 200, headers: ["Content-Type":"application/json"])
@@ -199,7 +235,7 @@ class FacebookSocialAddonSpec : BaseSpec {
                 
                 it("returns a valid User object") {
                     
-                    waitUntil { done in
+                    waitUntil(timeout: 2) { done in
                         
                         self.facebookSocialAddon.handleLoginResult(loginResult: self.successWithEmailPermissionLoginResult) {
                             (user, error) in
