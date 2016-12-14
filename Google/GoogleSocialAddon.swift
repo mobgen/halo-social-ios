@@ -13,7 +13,7 @@ import SwiftKeychainWrapper
 import GoogleSignIn
 import Firebase
 
-public class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDSignInDelegate {
+open class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDSignInDelegate {
     
     public var addonName: String = "GoogleSocialAddon"
     var completionHandler: (User?, NSError?) -> Void = { _, _ in }
@@ -22,7 +22,7 @@ public class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDS
         handler?(self, true)
     }
     
-    public func startup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) {
+    open func startup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) {
         
         if FIRApp.defaultApp() == nil {
             FIRApp.configure()
@@ -59,37 +59,45 @@ public class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDS
     // MARK: GIDSignInDelegate
     
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        handleLoginResult(idToken: user.authentication.idToken, error: error, completionHandler: self.completionHandler)
+    }
+    
+    public func handleLoginResult(idToken: String?, error: Error!, completionHandler handler: @escaping ((User?, NSError?) -> Void)) {
         
         guard
             error == nil
         else {
             LogMessage(message: error.localizedDescription, level: .error).print()
-            self.completionHandler(nil, NSError(domain: "com.mobgen.halo", code: -1, userInfo: [NSLocalizedDescriptionKey: error.localizedDescription]))
+            handler(nil, NSError(domain: "com.mobgen.halo", code: -1, userInfo: [NSLocalizedDescriptionKey: error.localizedDescription]))
             return
         }
         
-        guard let idToken = user.authentication?.idToken else {
+        guard
+            let idToken = idToken
+        else {
             let message = "No token could be obtained from Google"
             LogMessage(message: message, level: .error).print()
-            self.completionHandler(nil, NSError(domain: "com.mobgen.halo", code: -1, userInfo: [NSLocalizedDescriptionKey: message]))
+            handler(nil, NSError(domain: "com.mobgen.halo", code: -1, userInfo: [NSLocalizedDescriptionKey: message]))
             return
         }
         
-        guard let deviceAlias = Manager.core.device?.alias else {
+        guard
+            let deviceAlias = Manager.core.device?.alias
+        else {
             let message = "No device alias could be obtained"
             LogMessage(message: message, level: .error).print()
-            self.completionHandler(nil, NSError(domain: "com.mobgen.halo", code: -1, userInfo: [NSLocalizedDescriptionKey: message]))
+            handler(nil, NSError(domain: "com.mobgen.halo", code: -1, userInfo: [NSLocalizedDescriptionKey: message]))
             return
         }
         
         LogMessage(message: "Google token: \(idToken)", level: .info).print()
-        
+     
         let profile = AuthProfile(token: idToken, network: .Google, deviceId: deviceAlias)
         authenticate(authProfile: profile) { (user, error) in
             if error != nil {
-                signIn.signOut()
+                GIDSignIn.sharedInstance().signOut()
             }
-            self.completionHandler(user, error)
+            handler(user, error)
         }
     }
     
