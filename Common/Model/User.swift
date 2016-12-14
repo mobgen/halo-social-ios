@@ -18,7 +18,7 @@ public class User: NSObject {
     }
     
     var userProfile: UserProfile
-    var token: Token
+    internal (set) public var token: Token
     
     public override var debugDescription: String {
         return "[User] Email: \(userProfile.email)"

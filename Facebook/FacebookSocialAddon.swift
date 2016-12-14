@@ -12,7 +12,7 @@ import HaloSocial
 import FacebookCore
 import FacebookLogin
 
-public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.LifecycleAddon, SocialProvider {
+public class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, SocialProvider {
     
     public enum FacebookSocialAddonError {
         case Error
@@ -132,45 +132,59 @@ public class FacebookSocialAddon : NSObject, Halo.DeeplinkingAddon, Halo.Lifecyc
         loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: viewController) {
             loginResult in
             
-            switch loginResult {
-                
-            // Error.
-            case .failed(let error):
-                LogMessage(message: "An error ocurred when user was trying to authenticate with Facebook.", level: .error).print()
-                handler(nil, NSError(domain: FacebookSocialAddon.FacebookSocialAddonError.errorDomain,
-                                     code: FacebookSocialAddon.FacebookSocialAddonError.Error.errorCode,
-                                     userInfo: [NSLocalizedDescriptionKey: error.localizedDescription]))
+            self.handleLoginResult(loginResult: loginResult, completionHandler: handler)
+        }
+    }
+    
+    public func handleLoginResult(loginResult: FacebookLogin.LoginResult, completionHandler handler: @escaping (User?, NSError?) -> Void) {
+        
+        // Check if deviceAlias exists.
+        guard
+            let deviceAlias = Manager.core.device?.alias
+            else {
+                let message = "No device alias could be obtained"
+                LogMessage(message: message, level: .error).print()
+                handler(nil, NSError(domain: "com.mobgen.halo", code: -1, userInfo: [NSLocalizedDescriptionKey: message]))
+                return
+        }
+        
+        switch loginResult {
             
-            // Cancelled.
-            case .cancelled:
-                LogMessage(message: "User cancelled the authentication with Facebook.", level: .error).print()
-                handler(nil, NSError(domain: FacebookSocialAddon.FacebookSocialAddonError.errorDomain,
-                                     code: FacebookSocialAddon.FacebookSocialAddonError.Cancelled.errorCode,
-                                     userInfo: FacebookSocialAddon.FacebookSocialAddonError.Cancelled.errorUserInfo))
-                
-            // Success.
-            case .success(let grantedPermissions, _, let accessToken):
-                // Check if Email ReadPermission is granted.
-                guard
-                    grantedPermissions.contains(Permission(name: "email"))
+        // Error.
+        case .failed(let error):
+            LogMessage(message: "An error ocurred when user was trying to authenticate with Facebook.", level: .error).print()
+            handler(nil, NSError(domain: FacebookSocialAddon.FacebookSocialAddonError.errorDomain,
+                                 code: FacebookSocialAddon.FacebookSocialAddonError.Error.errorCode,
+                                 userInfo: [NSLocalizedDescriptionKey: error.localizedDescription]))
+            
+        // Cancelled.
+        case .cancelled:
+            LogMessage(message: "User cancelled the authentication with Facebook.", level: .error).print()
+            handler(nil, NSError(domain: FacebookSocialAddon.FacebookSocialAddonError.errorDomain,
+                                 code: FacebookSocialAddon.FacebookSocialAddonError.Cancelled.errorCode,
+                                 userInfo: FacebookSocialAddon.FacebookSocialAddonError.Cancelled.errorUserInfo))
+            
+        // Success.
+        case .success(let grantedPermissions, _, let accessToken):
+            // Check if Email ReadPermission is granted.
+            guard
+                grantedPermissions.contains(Permission(name: "email"))
                 else {
                     LogMessage(message: "User denied permissions access to his email.", level: .info).print()
                     handler(nil, NSError(domain: FacebookSocialAddon.FacebookSocialAddonError.errorDomain,
                                          code: FacebookSocialAddon.FacebookSocialAddonError.PermissionEmailDenied.errorCode,
                                          userInfo: FacebookSocialAddon.FacebookSocialAddonError.PermissionEmailDenied.errorUserInfo))
                     return
-                }
-                
-                // Login with Halo.
-                LogMessage(message: "Login with Facebook successful", level: .info).print()
-                let authProfile = AuthProfile(token: accessToken.authenticationToken,
-                                              network: Network.Facebook,
-                                              deviceId: deviceAlias)
-                self.authenticate(authProfile: authProfile, completionHandler: handler)
             }
+            
+            // Login with Halo.
+            LogMessage(message: "Login with Facebook successful", level: .info).print()
+            let authProfile = AuthProfile(token: accessToken.authenticationToken,
+                                          network: Network.Facebook,
+                                          deviceId: deviceAlias)
+            self.authenticate(authProfile: authProfile, completionHandler: handler)
         }
     }
-    
 }
 
 public extension SocialManager {
