@@ -59,7 +59,7 @@ open class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDSig
     // MARK: GIDSignInDelegate
     
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        handleLoginResult(idToken: user.authentication.idToken, error: error, completionHandler: self.completionHandler)
+        handleLoginResult(idToken: user.authentication?.idToken, error: error, completionHandler: self.completionHandler)
     }
     
     public func handleLoginResult(idToken: String?, error: Error!, completionHandler handler: @escaping ((User?, NSError?) -> Void)) {
