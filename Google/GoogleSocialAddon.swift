@@ -105,6 +105,11 @@ open class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDSig
         }
     }
     
+    public func logout(completionHandler handler: ((Bool) -> Void)?) {
+        GIDSignIn.sharedInstance().signOut()
+        handler?(true)
+    }
+    
     public func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // Remove from keychain if stored?
     }

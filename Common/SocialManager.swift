@@ -39,6 +39,15 @@ public class SocialManager: NSObject, HaloManager {
         }
     }
     
+    @objc(logout:)
+    public func logout(completionHandler handler: ((Bool) -> Void)?) -> Void {
+        Manager.core.addons.forEach { addon in
+            if let socialProviderAddon = addon as? SocialProvider {
+                socialProviderAddon.logout(completionHandler: handler)
+            }
+        }
+    }
+    
     /**
      Call this method to start the registration with Halo.
      

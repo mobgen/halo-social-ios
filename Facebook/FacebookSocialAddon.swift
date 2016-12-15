@@ -185,6 +185,12 @@ public class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, S
             self.authenticate(authProfile: authProfile, completionHandler: handler)
         }
     }
+    
+    public func logout(completionHandler handler: ((Bool) -> Void)?) {
+        let loginManager = LoginManager()
+        loginManager.logOut()
+        handler?(true)
+    }
 }
 
 public extension SocialManager {
