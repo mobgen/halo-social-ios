@@ -32,7 +32,6 @@
 		002EDD5A1DEEF0B60022F96D /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD531DEEF0B60022F96D /* FirebaseInstanceID.framework */; };
 		002EDD5B1DEEF0B60022F96D /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD541DEEF0B60022F96D /* GoogleInterchangeUtilities.framework */; };
 		A507F7A21DEF2F8400BE8E7F /* FacebookSocialAddon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F7A01DEF1A8A00BE8E7F /* FacebookSocialAddon.swift */; };
-		A533C4611DFF02EF00B539AF /* register_success.json in Resources */ = {isa = PBXBuildFile; fileRef = A533C4601DFF02EF00B539AF /* register_success.json */; };
 		A53B9D101E014DB5005D514E /* BaseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53B9D0E1E014D9E005D514E /* BaseSpec.swift */; };
 		A53B9D131E01586C005D514E /* HaloSocialGoogle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62201DD1E5E900B4CE78 /* HaloSocialGoogle.framework */; };
 		A53B9D141E0158A6005D514E /* HaloSocialFacebook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62101DD1E32900B4CE78 /* HaloSocialFacebook.framework */; };
@@ -52,9 +51,6 @@
 		A5B86A9F1E00092F00614646 /* FacebookSocialAddonSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B86A941E00053600614646 /* FacebookSocialAddonSpec.swift */; };
 		A5BB3AA81E01646900EF499B /* GoogleSocialAddonSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB3AA71E01646900EF499B /* GoogleSocialAddonSpec.swift */; };
 		A5BB3AAA1E016A3000EF499B /* MockUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB3AA91E016A3000EF499B /* MockUIDelegate.swift */; };
-		A5BEBE9C1DFABEF000CD775C /* SocialManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BEBE9B1DFABEF000CD775C /* SocialManagerSpec.swift */; };
-		A5BEBEA61DFAC23700CD775C /* BaseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BEBEA51DFAC23700CD775C /* BaseSpec.swift */; };
-		A5BEBEBF1DFACC4000CD775C /* login_success.json in Resources */ = {isa = PBXBuildFile; fileRef = A5BEBEBE1DFACC4000CD775C /* login_success.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,11 +112,7 @@
 		A5B86A941E00053600614646 /* FacebookSocialAddonSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookSocialAddonSpec.swift; sourceTree = "<group>"; };
 		A5BB3AA71E01646900EF499B /* GoogleSocialAddonSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSocialAddonSpec.swift; sourceTree = "<group>"; };
 		A5BB3AA91E016A3000EF499B /* MockUIDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUIDelegate.swift; sourceTree = "<group>"; };
-		A5BEBE9B1DFABEF000CD775C /* SocialManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialManagerSpec.swift; sourceTree = "<group>"; };
-		A5BEBEA51DFAC23700CD775C /* BaseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSpec.swift; sourceTree = "<group>"; };
 		A5BEBEBE1DFACC4000CD775C /* login_success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login_success.json; sourceTree = "<group>"; };
-		A5F62E751DF80EAB0089BA08 /* HaloSocialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaloSocialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5F62E791DF80EAB0089BA08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,13 +174,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A5F62E721DF80EAB0089BA08 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -208,7 +193,6 @@
 			children = (
 				002E62101DD1E32900B4CE78 /* HaloSocialFacebook.framework */,
 				002E62201DD1E5E900B4CE78 /* HaloSocialGoogle.framework */,
-				A5F62E751DF80EAB0089BA08 /* HaloSocialTests.xctest */,
 				A5425AA61DFFF6200081AB2B /* HaloSocialFacebookTests.xctest */,
 				A53B9D031E014D71005D514E /* HaloSocialGoogleTests.xctest */,
 			);
@@ -296,7 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				A5BEBEBD1DFACC2600CD775C /* json */,
-				A5F62E761DF80EAB0089BA08 /* HaloSocialTests */,
 				A5425AA71DFFF6200081AB2B /* HaloSocialFacebookTests */,
 				A53B9D041E014D71005D514E /* HaloSocialGoogleTests */,
 			);
@@ -329,16 +312,6 @@
 				A533C4601DFF02EF00B539AF /* register_success.json */,
 			);
 			name = json;
-			path = HaloSocialTests;
-			sourceTree = "<group>";
-		};
-		A5F62E761DF80EAB0089BA08 /* HaloSocialTests */ = {
-			isa = PBXGroup;
-			children = (
-				A5F62E791DF80EAB0089BA08 /* Info.plist */,
-				A5BEBE9B1DFABEF000CD775C /* SocialManagerSpec.swift */,
-				A5BEBEA51DFAC23700CD775C /* BaseSpec.swift */,
-			);
 			path = HaloSocialTests;
 			sourceTree = "<group>";
 		};
@@ -439,24 +412,6 @@
 			productReference = A5425AA61DFFF6200081AB2B /* HaloSocialFacebookTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A5F62E741DF80EAB0089BA08 /* HaloSocialTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A5F62E7F1DF80EAB0089BA08 /* Build configuration list for PBXNativeTarget "HaloSocialTests" */;
-			buildPhases = (
-				A5F62E711DF80EAB0089BA08 /* Sources */,
-				A5F62E721DF80EAB0089BA08 /* Frameworks */,
-				A5F62E731DF80EAB0089BA08 /* Resources */,
-				A513254C1DFAD1E5002CC89A /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = HaloSocialTests;
-			productName = HaloSocialTests;
-			productReference = A5F62E751DF80EAB0089BA08 /* HaloSocialTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -490,12 +445,6 @@
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
-					A5F62E741DF80EAB0089BA08 = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 4DWNK4MCTP;
-						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
-					};
 				};
 			};
 			buildConfigurationList = 002E620A1DD1E32900B4CE78 /* Build configuration list for PBXProject "HaloSocial" */;
@@ -512,7 +461,6 @@
 			targets = (
 				002E620F1DD1E32900B4CE78 /* HaloSocialFacebook */,
 				002E621F1DD1E5E900B4CE78 /* HaloSocialGoogle */,
-				A5F62E741DF80EAB0089BA08 /* HaloSocialTests */,
 				A5425AA51DFFF6200081AB2B /* HaloSocialFacebookTests */,
 				A53B9D021E014D71005D514E /* HaloSocialGoogleTests */,
 			);
@@ -551,36 +499,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A5F62E731DF80EAB0089BA08 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A533C4611DFF02EF00B539AF /* register_success.json in Resources */,
-				A5BEBEBF1DFACC4000CD775C /* login_success.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A513254C1DFAD1E5002CC89A /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Halo.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftKeychainWrapper.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
 		A5425AB31DFFF6700081AB2B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -658,15 +579,6 @@
 			files = (
 				A5425AB21DFFF65D0081AB2B /* BaseSpec.swift in Sources */,
 				A5B86A9F1E00092F00614646 /* FacebookSocialAddonSpec.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A5F62E711DF80EAB0089BA08 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A5BEBE9C1DFABEF000CD775C /* SocialManagerSpec.swift in Sources */,
-				A5BEBEA61DFAC23700CD775C /* BaseSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -972,45 +884,6 @@
 			};
 			name = Release;
 		};
-		A5F62E7D1DF80EAB0089BA08 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 4DWNK4MCTP;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = HaloSocialTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobgen.HaloSocialTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		A5F62E7E1DF80EAB0089BA08 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 4DWNK4MCTP;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = HaloSocialTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobgen.HaloSocialTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1055,15 +928,6 @@
 			buildConfigurations = (
 				A5425AAF1DFFF6200081AB2B /* Debug */,
 				A5425AB01DFFF6200081AB2B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A5F62E7F1DF80EAB0089BA08 /* Build configuration list for PBXNativeTarget "HaloSocialTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A5F62E7D1DF80EAB0089BA08 /* Debug */,
-				A5F62E7E1DF80EAB0089BA08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
