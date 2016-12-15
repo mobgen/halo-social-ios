@@ -12,7 +12,7 @@ import HaloSocial
 import FacebookCore
 import FacebookLogin
 
-public class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, SocialProvider {
+public class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, AuthProvider {
     
     public enum FacebookSocialAddonError {
         case Error
@@ -186,14 +186,21 @@ public class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, S
         }
     }
     
-    public func logout(completionHandler handler: ((Bool) -> Void)?) {
+    public func logout() -> Bool {
+        guard
+            let _ = AccessToken.current
+        else {
+            return false
+        }
+        
         let loginManager = LoginManager()
         loginManager.logOut()
-        handler?(true)
+        
+        return true
     }
 }
 
-public extension SocialManager {
+public extension AuthManager {
     
     private var facebookSocialAddon: FacebookSocialAddon? {
         return Manager.core.addons.filter { $0 is FacebookSocialAddon }.first as? FacebookSocialAddon

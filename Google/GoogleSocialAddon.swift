@@ -13,7 +13,7 @@ import SwiftKeychainWrapper
 import GoogleSignIn
 import Firebase
 
-open class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDSignInDelegate {
+open class GoogleSocialAddon: NSObject, DeeplinkingAddon, AuthProvider, GIDSignInDelegate {
     
     public var addonName: String = "GoogleSocialAddon"
     var completionHandler: (User?, NSError?) -> Void = { _, _ in }
@@ -105,18 +105,21 @@ open class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDSig
         }
     }
     
-    public func logout(completionHandler handler: ((Bool) -> Void)?) {
+    public func logout() -> Bool {
+        guard
+            let _ = GIDSignIn.sharedInstance().currentUser
+        else {
+            return false
+        }
+        
         GIDSignIn.sharedInstance().signOut()
-        handler?(true)
-    }
-    
-    public func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        // Remove from keychain if stored?
+        
+        return true
     }
     
 }
 
-public extension SocialManager {
+public extension AuthManager {
     
     /**
      Call this method to start the login with Google.

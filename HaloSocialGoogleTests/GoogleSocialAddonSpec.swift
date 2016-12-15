@@ -37,7 +37,7 @@ class GoogleSocialAddonSpec : BaseSpec {
                 
                 it("returns a nil user and throws an error") {
                     
-                    Manager.social.loginWithGoogle(uiDelegate: self.uiDelegate) { (user, error) in
+                    Manager.auth.loginWithGoogle(uiDelegate: self.uiDelegate) { (user, error) in
                         // user == nil.
                         expect(user).to(beNil())
                         // error != nil.
@@ -150,6 +150,30 @@ class GoogleSocialAddonSpec : BaseSpec {
                 
             }
             
+        }
+        
+        describe("When trying to logout") {
+            
+            context("and user is not logged in yet with Google") {
+                
+                it("returns false") {
+                    
+                    expect(self.googleSocialAddon.logout()).to(beFalse())
+                    
+                }
+                
+            }
+            /*
+             context("and user is logged in with Google") {
+             
+             it("returns true") {
+             
+             expect(self.googleSocialAddon.logout()).to(beTrue())
+             
+             }
+             
+             }
+             */
         }
         
     }

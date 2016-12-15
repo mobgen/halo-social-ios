@@ -33,6 +33,15 @@ class SocialManagerSpec: BaseSpec {
         
         super.spec()
         
+        // MARK: TODO - Write test for recovering user.
+        xdescribe("User exists already in keychain") {
+            
+            it("recovers user") {
+                
+            }
+            
+        }
+        
         describe("Login with Halo") {
             
             context("using email and password") {
@@ -73,6 +82,12 @@ class SocialManagerSpec: BaseSpec {
                     }
                     
                 }
+                
+                // MARK: TODO - Write test for saving user after login.
+                xit("saves user in keychain") {
+                    
+                }
+                
             }
             
         }
@@ -108,6 +123,21 @@ class SocialManagerSpec: BaseSpec {
                 }
                 
             }
+            
+            // MARK: TODO - Write test for saving user after registration.
+            xit("saves user in keychain") {
+                
+            }
+            
+        }
+        
+        // MARK: TODO - Write test for removing user after logout.
+        xdescribe("Logout") {
+            
+            it("removes user from keychain") {
+                
+            }
+            
         }
     }
     

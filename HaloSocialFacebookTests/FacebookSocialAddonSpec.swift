@@ -91,7 +91,7 @@ class FacebookSocialAddonSpec : BaseSpec {
                 
                 it("returns a nil user and throws an error") {
                     
-                    Manager.social.loginWithFacebook { (user, error) in
+                    Manager.auth.loginWithFacebook { (user, error) in
                         // user == nil.
                         expect(user).to(beNil())
                         // error != nil.
@@ -259,6 +259,30 @@ class FacebookSocialAddonSpec : BaseSpec {
                 
             }
             
+        }
+        
+        describe("When trying to logout") {
+            
+            context("and user is not logged in yet with Facebook") {
+                
+                it("returns false") {
+                    
+                    expect(self.facebookSocialAddon.logout()).to(beFalse())
+                    
+                }
+                
+            }
+            /*
+            context("and user is logged in with Facebook") {
+                
+                it("returns true") {
+                    
+                    expect(self.facebookSocialAddon.logout()).to(beTrue())
+                    
+                }
+                
+            }
+            */
         }
     }
 }
