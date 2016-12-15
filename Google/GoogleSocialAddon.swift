@@ -9,7 +9,6 @@
 import Foundation
 import Halo
 import HaloSocial
-import SwiftKeychainWrapper
 import GoogleSignIn
 import Firebase
 
