@@ -13,6 +13,7 @@ public protocol SocialProvider {
     
     func authenticate(authProfile: AuthProfile, completionHandler handler: @escaping (User?, NSError?) -> Void) -> Void
     func logout(completionHandler handler: ((Bool) -> Void)?) -> Void
+
 }
 
 public extension SocialProvider {
