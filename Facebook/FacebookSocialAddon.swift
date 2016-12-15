@@ -193,7 +193,7 @@ public class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, S
     }
 }
 
-public extension SocialManager {
+public extension AuthManager {
     
     private var facebookSocialAddon: FacebookSocialAddon? {
         return Manager.core.addons.filter { $0 is FacebookSocialAddon }.first as? FacebookSocialAddon

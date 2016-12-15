@@ -115,7 +115,7 @@ open class GoogleSocialAddon: NSObject, DeeplinkingAddon, SocialProvider, GIDSig
     
 }
 
-public extension SocialManager {
+public extension AuthManager {
     
     /**
      Call this method to start the login with Google.
