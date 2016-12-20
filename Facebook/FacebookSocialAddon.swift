@@ -8,7 +8,6 @@
 
 import Foundation
 import Halo
-import HaloSocial
 import FacebookCore
 import FacebookLogin
 
@@ -118,7 +117,7 @@ public class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, A
             AccessToken.current!.grantedPermissions == nil ||
             !AccessToken.current!.grantedPermissions!.contains(Permission(name: "email"))
         else {
-            // Already logged-in,  login with Halo.
+            // Already logged-in, login with Halo.
             LogMessage(message: "Already logged in with Facebook.", level: .info).print()
             let authProfile = AuthProfile(token: AccessToken.current!.authenticationToken,
                                           network: Network.Facebook,
