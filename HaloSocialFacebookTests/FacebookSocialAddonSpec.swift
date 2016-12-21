@@ -79,7 +79,7 @@ class FacebookSocialAddonSpec : BaseSpec {
         super.spec()
         
         describe("Login with Facebook") {
-            context("when facebook addon is not registered") {
+            context("when Facebook Addon is not registered") {
                 var user: User?
                 var error: NSError?
                 
@@ -106,7 +106,10 @@ class FacebookSocialAddonSpec : BaseSpec {
                 }
             }
             
-            context("when facebook addon is registered") {
+            context("when Facebook Addon is registered") {
+                var user: User?
+                var error: NSError?
+
                 beforeEach {
                     // Register FacebookSocialAddon.
                     self.facebookSocialAddon = FacebookSocialAddon()
@@ -118,9 +121,6 @@ class FacebookSocialAddonSpec : BaseSpec {
                 }
                 
                 context("without a device") {
-                    var user: User?
-                    var error: NSError?
-                    
                     beforeEach {
                         waitUntil { done in
                             Manager.auth.loginWithFacebook { (userResponse, errorResponse) in
@@ -140,10 +140,7 @@ class FacebookSocialAddonSpec : BaseSpec {
                     }
                 }
                 
-                context("and facebook login process has ended") {
-                    var user: User?
-                    var error: NSError?
-                    
+                context("and Facebook login process has ended") {
                     context("without a device") {
                         beforeEach {
                             waitUntil { done in

@@ -50,22 +50,16 @@ public class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, A
     // MARK : Addon methods.
     
     public func setup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) {
-        LogMessage(message: "facebook setup", level: .info).print()
         handler?(self, true)
     }
     
     public func startup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) {
-        LogMessage(message: "facebook startup", level: .info).print()
         handler?(self, true)
     }
     
-    public func willRegisterAddon(haloCore core: CoreManager) {
-        LogMessage(message: "facebook willRegisterAddon", level: .info).print()
-    }
+    public func willRegisterAddon(haloCore core: CoreManager) { }
     
-    public func didRegisterAddon(haloCore core: CoreManager) {
-        LogMessage(message: "facebook didRegisterAddon", level: .info).print()
-    }
+    public func didRegisterAddon(haloCore core: CoreManager) { }
     
     // MARK : DeeplinkingAddon methods.
     

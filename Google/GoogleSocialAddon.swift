@@ -8,7 +8,6 @@
 
 import Foundation
 import Halo
-import HaloSocial
 import GoogleSignIn
 import Firebase
 
@@ -120,6 +119,10 @@ open class GoogleSocialAddon: NSObject, DeeplinkingAddon, AuthProvider, GIDSignI
 
 public extension AuthManager {
     
+    private var googleSocialAddon: GoogleSocialAddon? {
+        return Manager.core.addons.filter { $0 is GoogleSocialAddon }.first as? GoogleSocialAddon
+    }
+    
     /**
      Call this method to start the login with Google.
      
@@ -129,18 +132,17 @@ public extension AuthManager {
      - parameter completionHandler: Closure to be called after completion
      */
     @objc(loginWithGoogleWithUIDelegate:completionHandler:)
-    func loginWithGoogle(uiDelegate: GIDSignInUIDelegate, completionHandler handler: @escaping (User?, Error?) -> Void) {
-        
-        let google = Manager.core.addons.filter { $0 is GoogleSocialAddon }.first as? GoogleSocialAddon
-        
-        guard google != nil else {
-            let message = "No GoogleSocialAddon has been configured and registered"
+    func loginWithGoogle(uiDelegate: GIDSignInUIDelegate, completionHandler handler: @escaping (User?, NSError?) -> Void) {
+        guard
+            let googleSocialAddon = self.googleSocialAddon
+        else {
+            let message = "No GoogleSocialAddon has been configured and registered."
             LogMessage(message: message, level: .error).print()
             handler(nil, NSError(domain: "com.mobgen.halo", code: -1, userInfo: [NSLocalizedDescriptionKey: message]))
             return
         }
         
-        google?.completionHandler = handler
+        googleSocialAddon.completionHandler = handler
         
         GIDSignIn.sharedInstance().uiDelegate = uiDelegate
         GIDSignIn.sharedInstance().signIn()
