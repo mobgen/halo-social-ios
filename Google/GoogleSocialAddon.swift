@@ -131,8 +131,8 @@ public extension AuthManager {
                                 , dismiss it or will dispatch it.
      - parameter completionHandler: Closure to be called after completion
      */
-    @objc(loginWithGoogleWithUIDelegate:completionHandler:)
-    func loginWithGoogle(uiDelegate: GIDSignInUIDelegate, completionHandler handler: @escaping (User?, NSError?) -> Void) {
+    @objc(loginWithGoogleWithUIDelegate:stayLoggedIn:completionHandler:)
+    func loginWithGoogle(uiDelegate: GIDSignInUIDelegate, stayLoggedIn: Bool = Manager.auth.stayLoggedIn, completionHandler handler: @escaping (User?, NSError?) -> Void) {
         guard
             let googleSocialAddon = self.googleSocialAddon
         else {
@@ -142,6 +142,7 @@ public extension AuthManager {
             return
         }
         
+        Manager.auth.stayLoggedIn = stayLoggedIn        
         googleSocialAddon.completionHandler = handler
         
         GIDSignIn.sharedInstance().uiDelegate = uiDelegate

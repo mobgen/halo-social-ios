@@ -210,8 +210,8 @@ public extension AuthManager {
                                     automatically determined as best as possible.
      - parameter completionHandler: Closure to be called after completion
      */
-    @objc(loginWithFacebookWithViewController:completionHandler:)
-    func loginWithFacebook(viewController: UIViewController? = nil, completionHandler handler: @escaping (User?, NSError?) -> Void) {
+    @objc(loginWithFacebookWithViewController:stayLoggedIn:completionHandler:)
+    func loginWithFacebook(viewController: UIViewController? = nil, stayLoggedIn: Bool = Manager.auth.stayLoggedIn, completionHandler handler: @escaping (User?, NSError?) -> Void) {
         guard
             let facebookSocialAddon = self.facebookSocialAddon
         else {
@@ -221,6 +221,7 @@ public extension AuthManager {
             return
         }
         
+        Manager.auth.stayLoggedIn = stayLoggedIn        
         facebookSocialAddon.login(viewController: viewController, completionHandler: handler)
     }
     
