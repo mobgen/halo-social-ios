@@ -120,6 +120,30 @@ class FacebookSocialAddonSpec : BaseSpec {
                     Manager.core.startup()
                 }
                 
+                context("stayLoggedIn is ! Manager.auth.stayLoggedI") {
+                    let stayLoggedIn = !Manager.auth.stayLoggedIn
+                    
+                    beforeEach {
+                        waitUntil { done in
+                            Manager.auth.loginWithFacebook(stayLoggedIn: stayLoggedIn) { (_, _) in
+                                done()
+                            }
+                        }
+                    }
+                    
+                    afterEach {
+                        waitUntil { done in
+                            Manager.auth.logout { success in
+                                done()
+                            }
+                        }
+                    }
+                    
+                    it("stayLoggedIn AuthManager property is correctly set") {
+                        expect(Manager.auth.stayLoggedIn).to(equal(stayLoggedIn))
+                    }
+                }
+                
                 context("without a device") {
                     beforeEach {
                         waitUntil { done in
