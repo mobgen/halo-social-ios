@@ -141,10 +141,10 @@ class FacebookSocialAddonSpec : BaseSpec {
                 }
                 
                 context("and facebook login process has ended") {
+                    var user: User?
+                    var error: NSError?
+                    
                     context("without a device") {
-                        var user: User?
-                        var error: NSError?
-                        
                         beforeEach {
                             waitUntil { done in
                                 self.facebookSocialAddon.handleLoginResult(loginResult: self.successWithEmailPermissionLoginResult) { (userResponse, errorResponse) in
@@ -164,160 +164,123 @@ class FacebookSocialAddonSpec : BaseSpec {
                         }
                     }
                     
-                    context("with an error from Facebook") {
-                        var user: User?
-                        var error: NSError?
-                        
+                    context("with a device") {
                         beforeEach {
                             // Add a device for test purposes.
                             let device = Device()
                             device.alias = "randomdevicealias"
                             Manager.core.device = device
-                            
-                            waitUntil { done in
-                                self.facebookSocialAddon.handleLoginResult(loginResult: self.errorLoginResult) { (userResponse, errorResponse) in
-                                    user = userResponse
-                                    error = errorResponse
-                                    done()
+                        }
+                        
+                        context("with an error from Facebook") {
+                            beforeEach {
+                                waitUntil { done in
+                                    self.facebookSocialAddon.handleLoginResult(loginResult: self.errorLoginResult) { (userResponse, errorResponse) in
+                                        user = userResponse
+                                        error = errorResponse
+                                        done()
+                                    }
                                 }
+                            }
+                            
+                            it("returns a nil user") {
+                                expect(user).to(beNil())
+                            }
+                            
+                            it("returns a FacebookSocialAddonError.Error") {
+                                expect(error).notTo(beNil())
+                                expect(error?.domain).to(equal(FacebookSocialAddon.FacebookSocialAddonError.errorDomain))
+                                expect(error?.code).to(equal(FacebookSocialAddon.FacebookSocialAddonError.Error.errorCode))
                             }
                         }
                         
-                        it("returns a nil user") {
-                            expect(user).to(beNil())
-                        }
-                        
-                        it("returns a FacebookSocialAddonError.Error") {
-                            expect(error).notTo(beNil())
-                            expect(error?.domain).to(equal(FacebookSocialAddon.FacebookSocialAddonError.errorDomain))
-                            expect(error?.code).to(equal(FacebookSocialAddon.FacebookSocialAddonError.Error.errorCode))
-                        }                        
-                    }
-                    
-                    context("because user cancelled login") {
-                        
-                        beforeEach {
-                            // Add a device for test purposes.
-                            let device = Device()
-                            device.alias = "randomdevicealias"
-                            Manager.core.device = device
-                        }
-                        
-                        it("returns a nil user and a FacebookSocialAddonError.Cancelled") {
+                        context("because user cancelled login") {
+                            beforeEach {
+                                waitUntil { done in
+                                    self.facebookSocialAddon.handleLoginResult(loginResult: self.cancelledLoginResult) { (userResponse, errorResponse) in
+                                        user = userResponse
+                                        error = errorResponse
+                                        done()
+                                    }
+                                }
+                            }
                             
-                            self.facebookSocialAddon.handleLoginResult(loginResult: self.cancelledLoginResult) {
-                                (user, error) in
-                                
-                                // user == nil.
+                            it("returns a nil User") {
                                 expect(user).to(beNil())
-                                // error != nil.
+                            }
+                            
+                            it("returns a FacebookSocialAddonError.Cancelled") {
                                 expect(error).notTo(beNil())
-                                // Check errorDomain.
                                 expect(error?.domain).to(equal(FacebookSocialAddon.FacebookSocialAddonError.errorDomain))
-                                // Check errorCode.
                                 expect(error?.code).to(equal(FacebookSocialAddon.FacebookSocialAddonError.Cancelled.errorCode))
                             }
-                            
-                        }
-                    }
-                    
-                    context("With success but email permission is declined") {
-                        
-                        beforeEach {
-                            // Add a device for test purposes.
-                            let device = Device()
-                            device.alias = "randomdevicealias"
-                            Manager.core.device = device
                         }
                         
-                        it("returns a nil user and a FacebookSocialAddonError.PermissionEmailDenied") {
+                        context("With success but email permission is declined") {
+                            beforeEach {
+                                waitUntil { done in
+                                    self.facebookSocialAddon.handleLoginResult(loginResult: self.successWithoutEmailPermissionLoginResult) { (userResponse, errorResponse) in
+                                        user = userResponse
+                                        error = errorResponse
+                                        done()
+                                    }
+                                }
+                            }
                             
-                            self.facebookSocialAddon.handleLoginResult(loginResult: self.successWithoutEmailPermissionLoginResult) {
-                                (user, error) in
-                                
-                                // user == nil.
+                            it("returns a nil User") {
                                 expect(user).to(beNil())
-                                // error != nil.
+                            }
+                            
+                            it("returns a FacebookSocialAddonError.PermissionEmailDenied") {
                                 expect(error).notTo(beNil())
-                                // Check errorDomain.
                                 expect(error?.domain).to(equal(FacebookSocialAddon.FacebookSocialAddonError.errorDomain))
-                                // Check errorCode.
                                 expect(error?.code).to(equal(FacebookSocialAddon.FacebookSocialAddonError.PermissionEmailDenied.errorCode))
                             }
-                            
                         }
                         
-                    }
-                    
-                    context("With success and email permission is granted") {
-                        
-                        beforeEach {
-                            // Add a device for test purposes.
-                            let device = Device()
-                            device.alias = "randomdevicealias"
-                            Manager.core.device = device
-                            
-                            stub(condition: isPath("/api/segmentation/identified/login")) { _ in
-                                let stubPath = OHPathForFile("login_success.json", type(of: self))
-                                return fixture(filePath: stubPath!, status: 200, headers: ["Content-Type":"application/json"])
+                        context("With success and email permission is granted") {
+                            beforeEach {
+                                stub(condition: isPath("/api/segmentation/identified/login")) { _ in
+                                    let stubPath = OHPathForFile("login_success.json", type(of: self))
+                                    return fixture(filePath: stubPath!, status: 200, headers: ["Content-Type":"application/json"])
                                 }.name = "Successful login stub"
-                        }
-                        
-                        afterEach {
-                            OHHTTPStubs.removeAllStubs()
-                        }
-                        
-                        it("returns a valid User object") {
-                            
-                            waitUntil(timeout: 2) { done in
                                 
-                                self.facebookSocialAddon.handleLoginResult(loginResult: self.successWithEmailPermissionLoginResult) {
-                                    (user, error) in
-                                    
-                                    // error == nil.
-                                    expect(error).to(beNil())
-                                    let token = user?.token
-                                    // token != nil.
-                                    expect(token).notTo(beNil())
-                                    // token should be valid.
-                                    expect(token?.isValid()).to(beTrue())
-                                    // token should not be expired.
-                                    expect(token?.isExpired()).to(beFalse())
-                                    
-                                    done()
+                                waitUntil { done in
+                                    self.facebookSocialAddon.handleLoginResult(loginResult: self.successWithEmailPermissionLoginResult) { (userResponse, errorResponse) in
+                                        user = userResponse
+                                        error = errorResponse
+                                        done()
+                                    }
                                 }
-                                
                             }
                             
+                            afterEach {
+                                OHHTTPStubs.removeAllStubs()
+                            }
+                            
+                            it("returns a valid User") {
+                                expect(user).toNot(beNil())
+                                let token = user?.token
+                                expect(token).notTo(beNil())
+                                expect(token?.isValid()).to(beTrue())
+                                expect(token?.isExpired()).to(beFalse())
+                            }
+                            
+                            it("returns a nil error") {
+                                expect(error).to(beNil())
+                            }
                         }
-                        
                     }
                 }
             }
         }
         
         describe("When trying to logout") {
-            
             context("and user is not logged in yet with Facebook") {
-                
                 it("returns false") {
-                    
                     expect(self.facebookSocialAddon.logout()).to(beFalse())
-                    
-                }
-                
+                }                
             }
-            /*
-            context("and user is logged in with Facebook") {
-                
-                it("returns true") {
-                    
-                    expect(self.facebookSocialAddon.logout()).to(beTrue())
-                    
-                }
-                
-            }
-            */
         }
     }
 }

@@ -69,7 +69,6 @@ public class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, A
     
     // MARK : DeeplinkingAddon methods.
     
-    
     public func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
         if #available(iOS 9.0, *) {
             return SDKApplicationDelegate.shared.application(app, open: url, options: options)
@@ -97,6 +96,23 @@ public class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, A
     public func applicationDidEnterBackground(_ app: UIApplication, core: Halo.CoreManager) -> Void { }
     
     public func applicationDidBecomeActive(_ app: UIApplication, core: Halo.CoreManager) -> Void { }
+    
+    // MARK : AuthProvider methods.
+    
+    public func logout() -> Bool {
+        guard
+            let _ = AccessToken.current
+            else {
+                return false
+        }
+        
+        let loginManager = LoginManager()
+        loginManager.logOut()
+        
+        return true
+    }
+    
+    // MARK : Other methods.
     
     public func login(viewController: UIViewController? = nil, completionHandler handler: @escaping (User?, NSError?) -> Void) {
         
@@ -183,19 +199,6 @@ public class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, A
                                           deviceId: deviceAlias)
             self.authenticate(authProfile: authProfile, completionHandler: handler)
         }
-    }
-    
-    public func logout() -> Bool {
-        guard
-            let _ = AccessToken.current
-        else {
-            return false
-        }
-        
-        let loginManager = LoginManager()
-        loginManager.logOut()
-        
-        return true
     }
 }
 
