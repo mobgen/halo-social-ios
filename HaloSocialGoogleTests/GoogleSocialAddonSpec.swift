@@ -176,15 +176,7 @@ class GoogleSocialAddonSpec : BaseSpec {
                     }
                 }
             }
-        }
-        
-        describe("When trying to logout") {
-            context("and user is not logged in yet with Google") {
-                it("returns false") {
-                    expect(self.googleSocialAddon.logout()).to(beFalse())
-                }
-            }
-        }        
+        }      
     }
     
 }

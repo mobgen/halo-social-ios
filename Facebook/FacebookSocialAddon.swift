@@ -93,17 +93,9 @@ public class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, A
     
     // MARK : AuthProvider methods.
     
-    public func logout() -> Bool {
-        guard
-            let _ = AccessToken.current
-            else {
-                return false
-        }
-        
+    public func logout() {
         let loginManager = LoginManager()
         loginManager.logOut()
-        
-        return true
     }
     
     // MARK : Other methods.

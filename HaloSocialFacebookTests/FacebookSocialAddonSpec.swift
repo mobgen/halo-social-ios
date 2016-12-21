@@ -295,13 +295,5 @@ class FacebookSocialAddonSpec : BaseSpec {
                 }
             }
         }
-        
-        describe("When trying to logout") {
-            context("and user is not logged in yet with Facebook") {
-                it("returns false") {
-                    expect(self.facebookSocialAddon.logout()).to(beFalse())
-                }                
-            }
-        }
     }
 }

@@ -103,16 +103,8 @@ open class GoogleSocialAddon: NSObject, DeeplinkingAddon, AuthProvider, GIDSignI
         }
     }
     
-    public func logout() -> Bool {
-        guard
-            let _ = GIDSignIn.sharedInstance().currentUser
-        else {
-            return false
-        }
-        
+    public func logout() {
         GIDSignIn.sharedInstance().signOut()
-        
-        return true
     }
     
 }
