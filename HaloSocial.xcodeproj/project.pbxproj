@@ -32,6 +32,13 @@
 		002EDD5A1DEEF0B60022F96D /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD531DEEF0B60022F96D /* FirebaseInstanceID.framework */; };
 		002EDD5B1DEEF0B60022F96D /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD541DEEF0B60022F96D /* GoogleInterchangeUtilities.framework */; };
 		A507F7A21DEF2F8400BE8E7F /* FacebookSocialAddon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F7A01DEF1A8A00BE8E7F /* FacebookSocialAddon.swift */; };
+		A52005381E0AE40600BA9316 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52005311E0AE40600BA9316 /* Bolts.framework */; };
+		A52005391E0AE40600BA9316 /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52005321E0AE40600BA9316 /* FacebookCore.framework */; };
+		A520053A1E0AE40600BA9316 /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52005331E0AE40600BA9316 /* FacebookLogin.framework */; };
+		A520053B1E0AE40600BA9316 /* FacebookShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52005341E0AE40600BA9316 /* FacebookShare.framework */; };
+		A520053C1E0AE40600BA9316 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52005351E0AE40600BA9316 /* FBSDKCoreKit.framework */; };
+		A520053D1E0AE40600BA9316 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52005361E0AE40600BA9316 /* FBSDKLoginKit.framework */; };
+		A520053E1E0AE40600BA9316 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52005371E0AE40600BA9316 /* FBSDKShareKit.framework */; };
 		A53B9D101E014DB5005D514E /* BaseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53B9D0E1E014D9E005D514E /* BaseSpec.swift */; };
 		A53B9D131E01586C005D514E /* HaloSocialGoogle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62201DD1E5E900B4CE78 /* HaloSocialGoogle.framework */; };
 		A53B9D141E0158A6005D514E /* HaloSocialFacebook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62101DD1E32900B4CE78 /* HaloSocialFacebook.framework */; };
@@ -101,6 +108,13 @@
 		002EDD541DEEF0B60022F96D /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
 		002EDD551DEEF0B60022F96D /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		A507F7A01DEF1A8A00BE8E7F /* FacebookSocialAddon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookSocialAddon.swift; sourceTree = "<group>"; };
+		A52005311E0AE40600BA9316 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		A52005321E0AE40600BA9316 /* FacebookCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookCore.framework; sourceTree = "<group>"; };
+		A52005331E0AE40600BA9316 /* FacebookLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookLogin.framework; sourceTree = "<group>"; };
+		A52005341E0AE40600BA9316 /* FacebookShare.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookShare.framework; sourceTree = "<group>"; };
+		A52005351E0AE40600BA9316 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		A52005361E0AE40600BA9316 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		A52005371E0AE40600BA9316 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		A533C4601DFF02EF00B539AF /* register_success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = register_success.json; sourceTree = "<group>"; };
 		A53B9D031E014D71005D514E /* HaloSocialGoogleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaloSocialGoogleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A53B9D071E014D71005D514E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,7 +134,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A520053E1E0AE40600BA9316 /* FBSDKShareKit.framework in Frameworks */,
+				A52005391E0AE40600BA9316 /* FacebookCore.framework in Frameworks */,
+				A520053C1E0AE40600BA9316 /* FBSDKCoreKit.framework in Frameworks */,
 				002E62431DD233D100B4CE78 /* Halo.framework in Frameworks */,
+				A520053A1E0AE40600BA9316 /* FacebookLogin.framework in Frameworks */,
+				A520053D1E0AE40600BA9316 /* FBSDKLoginKit.framework in Frameworks */,
+				A520053B1E0AE40600BA9316 /* FacebookShare.framework in Frameworks */,
+				A52005381E0AE40600BA9316 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +223,7 @@
 		002E62121DD1E32900B4CE78 /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
+				A52005301E0AE3CC00BA9316 /* Frameworks */,
 				002E62131DD1E32900B4CE78 /* HaloSocialFacebook.h */,
 				002E62141DD1E32900B4CE78 /* Info.plist */,
 				A507F7A01DEF1A8A00BE8E7F /* FacebookSocialAddon.swift */,
@@ -263,6 +285,20 @@
 				002EDD551DEEF0B60022F96D /* module.modulemap */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		A52005301E0AE3CC00BA9316 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A52005311E0AE40600BA9316 /* Bolts.framework */,
+				A52005321E0AE40600BA9316 /* FacebookCore.framework */,
+				A52005331E0AE40600BA9316 /* FacebookLogin.framework */,
+				A52005341E0AE40600BA9316 /* FacebookShare.framework */,
+				A52005351E0AE40600BA9316 /* FBSDKCoreKit.framework */,
+				A52005361E0AE40600BA9316 /* FBSDKLoginKit.framework */,
+				A52005371E0AE40600BA9316 /* FBSDKShareKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A53B9D041E014D71005D514E /* HaloSocialGoogleTests */ = {
@@ -713,6 +749,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Facebook/Frameworks",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Facebook",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Facebook/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -739,6 +776,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Facebook/Frameworks",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Facebook",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Facebook/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
