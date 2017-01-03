@@ -130,7 +130,7 @@ public class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, A
         
         // Not logged in or Email ReadPermission is not already granted.
         let loginManager = LoginManager()
-        loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: viewController) {
+        loginManager.logIn([.publicProfile, .email], viewController: viewController) {
             loginResult in
             
             self.handleLoginResult(loginResult: loginResult, completionHandler: handler)
