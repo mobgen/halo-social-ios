@@ -14,7 +14,7 @@ import Firebase
 open class GoogleSocialAddon: NSObject, DeeplinkingAddon, AuthProvider, GIDSignInDelegate {
     
     public var addonName: String = "GoogleSocialAddon"
-    var completionHandler: (User?, NSError?) -> Void = { _, _ in }
+    var completionHandler: (User?, HaloError?) -> Void = { _, _ in }
     
     public func setup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) {
         handler?(self, true)
@@ -29,7 +29,7 @@ open class GoogleSocialAddon: NSObject, DeeplinkingAddon, AuthProvider, GIDSignI
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-        LogMessage(message: "Configured GoogleSignIn with clientId: \(GIDSignIn.sharedInstance().clientID)", level: .info).print()
+        Halo.Manager.core.logMessage(message: "Configured GoogleSignIn with clientId: \(GIDSignIn.sharedInstance().clientID)", level: .info)
         
         handler?(self, true)
     }
@@ -64,13 +64,13 @@ open class GoogleSocialAddon: NSObject, DeeplinkingAddon, AuthProvider, GIDSignI
         }
     }
     
-    public func handleLoginResult(idToken: String?, error: Error!, completionHandler handler: @escaping ((User?, NSError?) -> Void)) {
+    public func handleLoginResult(idToken: String?, error: Error!, completionHandler handler: @escaping ((User?, HaloError?) -> Void)) {
         
         guard
             error == nil
         else {
-            LogMessage(message: error.localizedDescription, level: .error).print()
-            handler(nil, NSError(domain: "com.mobgen.halo", code: -1, userInfo: [NSLocalizedDescriptionKey: error.localizedDescription]))
+            Halo.Manager.core.logMessage(message: error.localizedDescription, level: .error)
+            handler(nil, .loginError(error.localizedDescription))
             return
         }
         
@@ -78,8 +78,8 @@ open class GoogleSocialAddon: NSObject, DeeplinkingAddon, AuthProvider, GIDSignI
             let idToken = idToken
         else {
             let message = "No token could be obtained from Google"
-            LogMessage(message: message, level: .error).print()
-            handler(nil, NSError(domain: "com.mobgen.halo", code: -1, userInfo: [NSLocalizedDescriptionKey: message]))
+            Halo.Manager.core.logMessage(message: message, level: .error)
+            handler(nil, .loginError(message))
             return
         }
         
@@ -87,14 +87,14 @@ open class GoogleSocialAddon: NSObject, DeeplinkingAddon, AuthProvider, GIDSignI
             let deviceAlias = Manager.core.device?.alias
         else {
             let message = "No device alias could be obtained"
-            LogMessage(message: message, level: .error).print()
-            handler(nil, NSError(domain: "com.mobgen.halo", code: -1, userInfo: [NSLocalizedDescriptionKey: message]))
+            Halo.Manager.core.logMessage(message: message, level: .error)
+            handler(nil, .loginError(message))
             return
         }
         
-        LogMessage(message: "Google token: \(idToken)", level: .info).print()
+        Halo.Manager.core.logMessage(message: "Google token: \(idToken)", level: .info)
      
-        let profile = AuthProfile(token: idToken, network: .Google, deviceId: deviceAlias)
+        let profile = AuthProfile(token: idToken, network: .google, deviceId: deviceAlias)
         authenticate(authProfile: profile) { (user, error) in
             if error != nil {
                 GIDSignIn.sharedInstance().signOut()
@@ -123,14 +123,14 @@ public extension AuthManager {
                                 , dismiss it or will dispatch it.
      - parameter completionHandler: Closure to be called after completion
      */
-    @objc(loginWithGoogleWithUIDelegate:stayLoggedIn:completionHandler:)
-    func loginWithGoogle(uiDelegate: GIDSignInUIDelegate, stayLoggedIn: Bool = Manager.auth.stayLoggedIn, completionHandler handler: @escaping (User?, NSError?) -> Void) {
+    //@objc(loginWithGoogleWithUIDelegate:stayLoggedIn:completionHandler:)
+    func loginWithGoogle(uiDelegate: GIDSignInUIDelegate, stayLoggedIn: Bool = Manager.auth.stayLoggedIn, completionHandler handler: @escaping (User?, HaloError?) -> Void) {
         guard
             let googleSocialAddon = self.googleSocialAddon
         else {
             let message = "No GoogleSocialAddon has been configured and registered."
-            LogMessage(message: message, level: .error).print()
-            handler(nil, NSError(domain: "com.mobgen.halo", code: -1, userInfo: [NSLocalizedDescriptionKey: message]))
+            Halo.Manager.core.logMessage(message: message, level: .error)
+            handler(nil, .loginError(message))
             return
         }
         
