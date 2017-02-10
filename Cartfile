@@ -1,2 +1,2 @@
-github "mobgen/halo-ios" "develop"
+github "mobgen/halo-ios" "2.2.0"
 github "facebook/facebook-sdk-swift"
