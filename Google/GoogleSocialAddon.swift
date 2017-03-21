@@ -29,7 +29,7 @@ open class GoogleSocialAddon: NSObject, DeeplinkingAddon, AuthProvider, GIDSignI
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-        Halo.Manager.core.logMessage(message: "Configured GoogleSignIn with clientId: \(GIDSignIn.sharedInstance().clientID)", level: .info)
+        Halo.Manager.core.logMessage("Configured GoogleSignIn with clientId: \(GIDSignIn.sharedInstance().clientID)", level: .info)
         
         handler?(self, true)
     }
@@ -69,7 +69,7 @@ open class GoogleSocialAddon: NSObject, DeeplinkingAddon, AuthProvider, GIDSignI
         guard
             error == nil
         else {
-            Halo.Manager.core.logMessage(message: error.localizedDescription, level: .error)
+            Halo.Manager.core.logMessage(error.localizedDescription, level: .error)
             handler(nil, .loginError(error.localizedDescription))
             return
         }
@@ -78,7 +78,7 @@ open class GoogleSocialAddon: NSObject, DeeplinkingAddon, AuthProvider, GIDSignI
             let idToken = idToken
         else {
             let message = "No token could be obtained from Google"
-            Halo.Manager.core.logMessage(message: message, level: .error)
+            Halo.Manager.core.logMessage(message, level: .error)
             handler(nil, .loginError(message))
             return
         }
@@ -87,12 +87,12 @@ open class GoogleSocialAddon: NSObject, DeeplinkingAddon, AuthProvider, GIDSignI
             let deviceAlias = Manager.core.device?.alias
         else {
             let message = "No device alias could be obtained"
-            Halo.Manager.core.logMessage(message: message, level: .error)
+            Halo.Manager.core.logMessage(message, level: .error)
             handler(nil, .loginError(message))
             return
         }
         
-        Halo.Manager.core.logMessage(message: "Google token: \(idToken)", level: .info)
+        Halo.Manager.core.logMessage("Google token: \(idToken)", level: .info)
      
         let profile = AuthProfile(token: idToken, network: .google, deviceId: deviceAlias)
         authenticate(authProfile: profile) { (user, error) in
@@ -129,7 +129,7 @@ public extension AuthManager {
             let googleSocialAddon = self.googleSocialAddon
         else {
             let message = "No GoogleSocialAddon has been configured and registered."
-            Halo.Manager.core.logMessage(message: message, level: .error)
+            Halo.Manager.core.logMessage(message, level: .error)
             handler(nil, .loginError(message))
             return
         }

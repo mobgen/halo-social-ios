@@ -107,7 +107,7 @@ open class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, Aut
             let deviceAlias = Manager.core.device?.alias
         else {
             let message = "No device alias could be obtained"
-            Halo.Manager.core.logMessage(message: message, level: .error)
+            Halo.Manager.core.logMessage(message, level: .error)
             handler(nil, .loginError(message))
             return
         }
@@ -120,7 +120,7 @@ open class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, Aut
             !AccessToken.current!.grantedPermissions!.contains(Permission(name: "email"))
         else {
             // Already logged-in, login with Halo.
-            Halo.Manager.core.logMessage(message: "Already logged in with Facebook.", level: .info)
+            Halo.Manager.core.logMessage("Already logged in with Facebook.", level: .info)
             let authProfile = AuthProfile(token: AccessToken.current!.authenticationToken,
                                           network: .facebook,
                                           deviceId: deviceAlias)
@@ -144,7 +144,7 @@ open class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, Aut
             let deviceAlias = Manager.core.device?.alias
             else {
                 let message = "No device alias could be obtained"
-                Halo.Manager.core.logMessage(message: message, level: .error)
+                Halo.Manager.core.logMessage(message, level: .error)
                 handler(nil, .loginError(message))
                 return
         }
@@ -153,13 +153,13 @@ open class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, Aut
             
         // Error.
         case .failed(let error):
-            Halo.Manager.core.logMessage(message: "An error ocurred when user was trying to authenticate with Facebook.", level: .error)
+            Halo.Manager.core.logMessage("An error ocurred when user was trying to authenticate with Facebook.", level: .error)
             handler(nil, .loginError(error.localizedDescription))
             
         // Cancelled.
         case .cancelled:
             let message = "User cancelled the authentication with Facebook."
-            Halo.Manager.core.logMessage(message: message, level: .error)
+            Halo.Manager.core.logMessage(message, level: .error)
             handler(nil, .loginError(message))
             
         // Success.
@@ -169,13 +169,13 @@ open class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, Aut
                 grantedPermissions.contains(Permission(name: "email"))
                 else {
                     let message = "User denied permissions access to his email."
-                    Halo.Manager.core.logMessage(message: message, level: .info)
+                    Halo.Manager.core.logMessage(message, level: .info)
                     handler(nil, .loginError(message))
                     return
             }
             
             // Login with Halo.
-            Halo.Manager.core.logMessage(message: "Login with Facebook successful", level: .info)
+            Halo.Manager.core.logMessage("Login with Facebook successful", level: .info)
             let authProfile = AuthProfile(token: accessToken.authenticationToken,
                                           network: .facebook,
                                           deviceId: deviceAlias)
@@ -204,7 +204,7 @@ public extension AuthManager {
             let facebookSocialAddon = self.facebookSocialAddon
         else {
             let message = "No FacebookSocialAddon has been configured and registered."
-            Halo.Manager.core.logMessage(message: message, level: .error)
+            Halo.Manager.core.logMessage(message, level: .error)
             handler(nil, .loginError(message))
             return
         }
