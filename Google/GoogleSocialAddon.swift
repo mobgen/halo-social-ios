@@ -9,30 +9,58 @@
 import Foundation
 import Halo
 import GoogleSignIn
-import Firebase
 
-open class GoogleSocialAddon: NSObject, DeeplinkingAddon, AuthProvider, GIDSignInDelegate {
-    
+
+open class GoogleSocialAddon: NSObject, HaloDeeplinkingAddon, AuthProvider, GIDSignInDelegate {
+
+    public var googleFileName: String = "GoogleService-Info"
     public var addonName: String = "GoogleSocialAddon"
-    var completionHandler: (User?, HaloError?) -> Void = { _, _ in }
+    var completionHandler: (HTTPURLResponse?, Result<Halo.User?>) -> Void = { _, _ in }
     
-    public func setup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) {
+    public func setup(haloCore core: CoreManager, completionHandler handler: ((HaloAddon, Bool) -> Void)?) {
         handler?(self, true)
     }
     
-    open func startup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) {
-        
-        if FIRApp.defaultApp() == nil {
-            FIRApp.configure()
+    open func startup(haloCore core: CoreManager, completionHandler handler: ((HaloAddon, Bool) -> Void)?) {
+
+        if let path = Bundle.main.path(forResource: googleFileName, ofType: "plist") {
+            let dictRoot = NSDictionary(contentsOfFile: path)
+            if let dict = dictRoot {
+                GIDSignIn.sharedInstance().clientID = dict["CLIENT_ID"] as! String
+                Halo.Manager.core.logMessage("Configured GoogleSignIn with clientId: \(GIDSignIn.sharedInstance().clientID)", level: .info)
+            }
         }
-        
-        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
+        else {
+            let e: HaloError = .loginError("No GoogleService-Info file from bundle")
+            Manager.core.logMessage(e.description, level: .error)
+        }
+
         GIDSignIn.sharedInstance().delegate = self
-        
-        Halo.Manager.core.logMessage("Configured GoogleSignIn with clientId: \(GIDSignIn.sharedInstance().clientID)", level: .info)
-        
+
         handler?(self, true)
     }
+
+    public func startup(app: UIApplication, haloCore core: CoreManager, completionHandler handler: ((HaloAddon, Bool) -> Void)?) {
+
+
+        if let path = Bundle.main.path(forResource: googleFileName, ofType: "plist") {
+            let dictRoot = NSDictionary(contentsOfFile: path)
+            if let dict = dictRoot {
+                GIDSignIn.sharedInstance().clientID = dict["CLIENT_ID"] as! String
+                Halo.Manager.core.logMessage("Configured GoogleSignIn with clientId: \(GIDSignIn.sharedInstance().clientID)", level: .info)
+            }
+        }
+        else {
+            let e: HaloError = .loginError("No GoogleService-Info file from bundle")
+            Manager.core.logMessage(e.description, level: .error)
+        }
+
+        GIDSignIn.sharedInstance().delegate = self
+
+        handler?(self, true)
+
+    }
+
     
     public func willRegisterAddon(haloCore core: CoreManager) {
         
@@ -64,31 +92,32 @@ open class GoogleSocialAddon: NSObject, DeeplinkingAddon, AuthProvider, GIDSignI
         }
     }
     
-    public func handleLoginResult(idToken: String?, error: Error!, completionHandler handler: @escaping ((User?, HaloError?) -> Void)) {
+    public func handleLoginResult(idToken: String?, error: Error!, completionHandler handler: @escaping ((HTTPURLResponse?, Result<Halo.User?>) -> Void)) {
         
         guard
             error == nil
         else {
-            Halo.Manager.core.logMessage(error.localizedDescription, level: .error)
-            handler(nil, .loginError(error.localizedDescription))
+            let haloError = HaloError.registrationError(error.localizedDescription)
+            Manager.core.logMessage(haloError.description, level: .error)
+            handler(nil, .failure(haloError))
             return
         }
         
         guard
             let idToken = idToken
         else {
-            let message = "No token could be obtained from Google"
-            Halo.Manager.core.logMessage(message, level: .error)
-            handler(nil, .loginError(message))
+            let e: HaloError = .loginError("No token could be obtained from Google")
+            Manager.core.logMessage(e.description, level: .error)
+            handler(nil, .failure(e))
             return
         }
         
         guard
             let deviceAlias = Manager.core.device?.alias
         else {
-            let message = "No device alias could be obtained"
-            Halo.Manager.core.logMessage(message, level: .error)
-            handler(nil, .loginError(message))
+            let e: HaloError = .loginError("No device alias could be obtained")
+            Manager.core.logMessage(e.description, level: .error)
+            handler(nil, .failure(e))
             return
         }
         
@@ -96,9 +125,9 @@ open class GoogleSocialAddon: NSObject, DeeplinkingAddon, AuthProvider, GIDSignI
      
         let profile = AuthProfile(token: idToken, network: .google, deviceId: deviceAlias)
         authenticate(authProfile: profile) { (user, error) in
-            if error != nil {
+
                 GIDSignIn.sharedInstance().signOut()
-            }
+
             handler(user, error)
         }
     }
@@ -124,13 +153,15 @@ public extension AuthManager {
      - parameter completionHandler: Closure to be called after completion
      */
     //@objc(loginWithGoogleWithUIDelegate:stayLoggedIn:completionHandler:)
-    func loginWithGoogle(uiDelegate: GIDSignInUIDelegate, stayLoggedIn: Bool = Manager.auth.stayLoggedIn, completionHandler handler: @escaping (User?, HaloError?) -> Void) {
+    func loginWithGoogle(uiDelegate: GIDSignInUIDelegate, stayLoggedIn: Bool = Manager.auth.stayLoggedIn, completionHandler handler: @escaping (HTTPURLResponse?, Result<Halo.User?>) -> Void) {
         guard
             let googleSocialAddon = self.googleSocialAddon
         else {
-            let message = "No GoogleSocialAddon has been configured and registered."
-            Halo.Manager.core.logMessage(message, level: .error)
-            handler(nil, .loginError(message))
+
+            let e: HaloError = .loginError("No GoogleSocialAddon has been configured and registered.")
+            Manager.core.logMessage(e.description, level: .error)
+            handler(nil, .failure(e))
+
             return
         }
         
