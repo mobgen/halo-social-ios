@@ -11,7 +11,9 @@ import Halo
 import FacebookCore
 import FacebookLogin
 
-open class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, AuthProvider {
+open class FacebookSocialAddon : NSObject, HaloDeeplinkingAddon, HaloLifecycleAddon, AuthProvider {
+
+
     
     public enum FacebookSocialAddonError {
         case Error
@@ -48,12 +50,15 @@ open class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, Aut
     public var addonName: String = "FacebookSocialAddon"
     
     // MARK : Addon methods.
-    
-    public func setup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) {
+
+
+
+
+    public func startup(app: UIApplication, haloCore core: CoreManager, completionHandler handler: ((HaloAddon, Bool) -> Void)?) {
         handler?(self, true)
     }
     
-    public func startup(haloCore core: CoreManager, completionHandler handler: ((Addon, Bool) -> Void)?) {
+    public func setup(haloCore core: CoreManager, completionHandler handler: ((HaloAddon, Bool) -> Void)?) {
         handler?(self, true)
     }
     
@@ -90,6 +95,14 @@ open class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, Aut
     public func applicationDidEnterBackground(_ app: UIApplication, core: Halo.CoreManager) -> Void { }
     
     public func applicationDidBecomeActive(_ app: UIApplication, core: Halo.CoreManager) -> Void { }
+
+    public func applicationWillChangeEnvironment(_ app: UIApplication, core: CoreManager) {
+
+    }
+
+    public func applicationDidChangeEnvironment(_ app: UIApplication, core: CoreManager) {
+
+    }
     
     // MARK : AuthProvider methods.
     
@@ -100,15 +113,16 @@ open class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, Aut
     
     // MARK : Other methods.
     
-    public func login(viewController: UIViewController? = nil, completionHandler handler: @escaping (User?, HaloError?) -> Void) {
+    public func login(viewController: UIViewController? = nil, completionHandler handler: @escaping (HTTPURLResponse?, Result<User?>) -> Void) {
         
         // Check if deviceAlias exists.
         guard
             let deviceAlias = Manager.core.device?.alias
         else {
-            let message = "No device alias could be obtained"
-            Halo.Manager.core.logMessage(message, level: .error)
-            handler(nil, .loginError(message))
+            let e: HaloError = .loginError("No device alias could be obtained")
+            Manager.core.logMessage(e.description, level: .error)
+            handler(nil, .failure(e))
+
             return
         }
         
@@ -130,22 +144,23 @@ open class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, Aut
         
         // Not logged in or Email ReadPermission is not already granted.
         let loginManager = LoginManager()
-        loginManager.logIn([.publicProfile, .email], viewController: viewController) {
+        loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: viewController) {
             loginResult in
             
             self.handleLoginResult(loginResult: loginResult, completionHandler: handler)
         }
     }
     
-    public func handleLoginResult(loginResult: FacebookLogin.LoginResult, completionHandler handler: @escaping (User?, HaloError?) -> Void) {
+    public func handleLoginResult(loginResult: FacebookLogin.LoginResult, completionHandler handler: @escaping (HTTPURLResponse?, Result<User?>) -> Void) {
         
         // Check if deviceAlias exists.
         guard
             let deviceAlias = Manager.core.device?.alias
             else {
-                let message = "No device alias could be obtained"
-                Halo.Manager.core.logMessage(message, level: .error)
-                handler(nil, .loginError(message))
+
+                let e: HaloError = .loginError("No device alias could be obtained")
+                Manager.core.logMessage(e.description, level: .error)
+                handler(nil, .failure(e))
                 return
         }
         
@@ -153,14 +168,16 @@ open class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, Aut
             
         // Error.
         case .failed(let error):
-            Halo.Manager.core.logMessage("An error ocurred when user was trying to authenticate with Facebook.", level: .error)
-            handler(nil, .loginError(error.localizedDescription))
-            
+            let haloError = HaloError.registrationError(error.localizedDescription)
+            Manager.core.logMessage(haloError.description, level: .error)
+            handler(nil, .failure(haloError))
+
         // Cancelled.
         case .cancelled:
-            let message = "User cancelled the authentication with Facebook."
-            Halo.Manager.core.logMessage(message, level: .error)
-            handler(nil, .loginError(message))
+            let e: HaloError = .loginError("User cancelled the authentication with Facebook.")
+            Manager.core.logMessage(e.description, level: .error)
+            handler(nil, .failure(e))
+            return
             
         // Success.
         case .success(let grantedPermissions, _, let accessToken):
@@ -168,9 +185,9 @@ open class FacebookSocialAddon : NSObject, DeeplinkingAddon, LifecycleAddon, Aut
             guard
                 grantedPermissions.contains(Permission(name: "email"))
                 else {
-                    let message = "User denied permissions access to his email."
-                    Halo.Manager.core.logMessage(message, level: .info)
-                    handler(nil, .loginError(message))
+                    let e: HaloError = .loginError("User denied permissions access to his email.")
+                    Manager.core.logMessage(e.description, level: .info)
+                    handler(nil, .failure(e))
                     return
             }
             
@@ -199,13 +216,13 @@ public extension AuthManager {
      - parameter completionHandler: Closure to be called after completion
      */
     //@objc(loginWithFacebookWithViewController:stayLoggedIn:completionHandler:)
-    func loginWithFacebook(viewController: UIViewController? = nil, stayLoggedIn: Bool = Manager.auth.stayLoggedIn, completionHandler handler: @escaping (User?, HaloError?) -> Void) {
+    func loginWithFacebook(viewController: UIViewController? = nil, stayLoggedIn: Bool = Manager.auth.stayLoggedIn, completionHandler handler: @escaping (HTTPURLResponse?, Result<User?>) -> Void) {
         guard
             let facebookSocialAddon = self.facebookSocialAddon
         else {
-            let message = "No FacebookSocialAddon has been configured and registered."
-            Halo.Manager.core.logMessage(message, level: .error)
-            handler(nil, .loginError(message))
+            let e: HaloError = .loginError("No FacebookSocialAddon has been configured and registered.")
+            Manager.core.logMessage(e.description, level: .error)
+            handler(nil, .failure(e))
             return
         }
         

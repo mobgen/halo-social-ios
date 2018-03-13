@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		002E62151DD1E32900B4CE78 /* HaloSocialFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 002E62131DD1E32900B4CE78 /* HaloSocialFacebook.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		002E62431DD233D100B4CE78 /* Halo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62421DD233D100B4CE78 /* Halo.framework */; };
 		002E62441DD233D100B4CE78 /* Halo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62421DD233D100B4CE78 /* Halo.framework */; };
 		002E624D1DD237FE00B4CE78 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 002E62481DD237FE00B4CE78 /* GoogleSignIn.bundle */; };
 		002E624E1DD237FE00B4CE78 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62491DD237FE00B4CE78 /* GoogleSignIn.framework */; };
@@ -23,35 +22,23 @@
 		002E62631DD4850B00B4CE78 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62621DD4850B00B4CE78 /* CoreText.framework */; };
 		002E62651DD4852D00B4CE78 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62641DD4852D00B4CE78 /* Security.framework */; };
 		002EDD311DEEBEF10022F96D /* GoogleSocialAddon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EDD301DEEBEF10022F96D /* GoogleSocialAddon.swift */; };
-		002EDD4B1DEEEF840022F96D /* GoogleAppUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD4A1DEEEF840022F96D /* GoogleAppUtilities.framework */; };
-		002EDD4D1DEEEF970022F96D /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD4C1DEEEF970022F96D /* GoogleSymbolUtilities.framework */; };
-		002EDD561DEEF0B60022F96D /* Firebase.h in Headers */ = {isa = PBXBuildFile; fileRef = 002EDD4F1DEEF0B60022F96D /* Firebase.h */; };
-		002EDD571DEEF0B60022F96D /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD501DEEF0B60022F96D /* FirebaseAnalytics.framework */; };
-		002EDD581DEEF0B60022F96D /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD511DEEF0B60022F96D /* FirebaseAuth.framework */; };
-		002EDD591DEEF0B60022F96D /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD521DEEF0B60022F96D /* FirebaseCore.framework */; };
-		002EDD5A1DEEF0B60022F96D /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD531DEEF0B60022F96D /* FirebaseInstanceID.framework */; };
-		002EDD5B1DEEF0B60022F96D /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD541DEEF0B60022F96D /* GoogleInterchangeUtilities.framework */; };
+		0D6797AB2057EA110093C07F /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6797A62057EA110093C07F /* FacebookLogin.framework */; };
+		0D6797AC2057EA110093C07F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6797A72057EA110093C07F /* FBSDKLoginKit.framework */; };
+		0D6797AD2057EA110093C07F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6797A82057EA110093C07F /* FBSDKCoreKit.framework */; };
+		0D6797AE2057EA110093C07F /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6797A92057EA110093C07F /* FacebookCore.framework */; };
+		0D6797AF2057EA110093C07F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6797AA2057EA110093C07F /* Bolts.framework */; };
+		0D6797B12057EA970093C07F /* FacebookLogin.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0D6797A62057EA110093C07F /* FacebookLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0D6797B22057EA970093C07F /* FBSDKLoginKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0D6797A72057EA110093C07F /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0D6797B32057EA970093C07F /* FBSDKCoreKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0D6797A82057EA110093C07F /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0D6797B42057EA970093C07F /* FacebookCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0D6797A92057EA110093C07F /* FacebookCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0D6797B52057EA970093C07F /* Bolts.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0D6797AA2057EA110093C07F /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A507F7A21DEF2F8400BE8E7F /* FacebookSocialAddon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F7A01DEF1A8A00BE8E7F /* FacebookSocialAddon.swift */; };
 		A53B9D101E014DB5005D514E /* BaseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53B9D0E1E014D9E005D514E /* BaseSpec.swift */; };
 		A53B9D131E01586C005D514E /* HaloSocialGoogle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62201DD1E5E900B4CE78 /* HaloSocialGoogle.framework */; };
 		A53B9D141E0158A6005D514E /* HaloSocialFacebook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62101DD1E32900B4CE78 /* HaloSocialFacebook.framework */; };
 		A5425AB21DFFF65D0081AB2B /* BaseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5425AB11DFFF65D0081AB2B /* BaseSpec.swift */; };
-		A5436C6A1E015C86004A6D6A /* GoogleAppUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD4A1DEEEF840022F96D /* GoogleAppUtilities.framework */; };
 		A5436C6B1E015C86004A6D6A /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E62491DD237FE00B4CE78 /* GoogleSignIn.framework */; };
 		A5436C6C1E015C86004A6D6A /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002E624A1DD237FE00B4CE78 /* GoogleSignInDependencies.framework */; };
-		A5436C6D1E015C86004A6D6A /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD4C1DEEEF970022F96D /* GoogleSymbolUtilities.framework */; };
-		A5844A7E1E015AE800BE29BA /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD501DEEF0B60022F96D /* FirebaseAnalytics.framework */; };
-		A5844A7F1E015AE800BE29BA /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD511DEEF0B60022F96D /* FirebaseAuth.framework */; };
-		A5844A801E015AE800BE29BA /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD521DEEF0B60022F96D /* FirebaseCore.framework */; };
-		A5844A811E015AE800BE29BA /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD531DEEF0B60022F96D /* FirebaseInstanceID.framework */; };
-		A5844A821E015AE800BE29BA /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EDD541DEEF0B60022F96D /* GoogleInterchangeUtilities.framework */; };
-		A585228F1E1C047100305B3D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58522881E1C047100305B3D /* Bolts.framework */; };
-		A58522901E1C047100305B3D /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58522891E1C047100305B3D /* FacebookCore.framework */; };
-		A58522911E1C047100305B3D /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A585228A1E1C047100305B3D /* FacebookLogin.framework */; };
-		A58522921E1C047100305B3D /* FacebookShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A585228B1E1C047100305B3D /* FacebookShare.framework */; };
-		A58522931E1C047100305B3D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A585228C1E1C047100305B3D /* FBSDKCoreKit.framework */; };
-		A58522941E1C047100305B3D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A585228D1E1C047100305B3D /* FBSDKLoginKit.framework */; };
-		A58522951E1C047100305B3D /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A585228E1E1C047100305B3D /* FBSDKShareKit.framework */; };
 		A5AD5C2E1E019534009CEB03 /* MockGoogleSocialAddon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AD5C2C1E01952F009CEB03 /* MockGoogleSocialAddon.swift */; };
 		A5AD5C2F1E01964E009CEB03 /* login_success.json in Resources */ = {isa = PBXBuildFile; fileRef = A5BEBEBE1DFACC4000CD775C /* login_success.json */; };
 		A5B86A961E0006DE00614646 /* login_success.json in Resources */ = {isa = PBXBuildFile; fileRef = A5BEBEBE1DFACC4000CD775C /* login_success.json */; };
@@ -77,6 +64,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0D6797B02057EA8A0093C07F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0D6797B12057EA970093C07F /* FacebookLogin.framework in CopyFiles */,
+				0D6797B22057EA970093C07F /* FBSDKLoginKit.framework in CopyFiles */,
+				0D6797B32057EA970093C07F /* FBSDKCoreKit.framework in CopyFiles */,
+				0D6797B42057EA970093C07F /* FacebookCore.framework in CopyFiles */,
+				0D6797B52057EA970093C07F /* Bolts.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		002E62101DD1E32900B4CE78 /* HaloSocialFacebook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaloSocialFacebook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		002E62131DD1E32900B4CE78 /* HaloSocialFacebook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HaloSocialFacebook.h; sourceTree = "<group>"; };
@@ -97,15 +101,11 @@
 		002E62621DD4850B00B4CE78 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		002E62641DD4852D00B4CE78 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		002EDD301DEEBEF10022F96D /* GoogleSocialAddon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSocialAddon.swift; sourceTree = "<group>"; };
-		002EDD4A1DEEEF840022F96D /* GoogleAppUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppUtilities.framework; sourceTree = "<group>"; };
-		002EDD4C1DEEEF970022F96D /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
-		002EDD4F1DEEF0B60022F96D /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
-		002EDD501DEEF0B60022F96D /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
-		002EDD511DEEF0B60022F96D /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = "<group>"; };
-		002EDD521DEEF0B60022F96D /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
-		002EDD531DEEF0B60022F96D /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		002EDD541DEEF0B60022F96D /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
-		002EDD551DEEF0B60022F96D /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		0D6797A62057EA110093C07F /* FacebookLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookLogin.framework; sourceTree = "<group>"; };
+		0D6797A72057EA110093C07F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		0D6797A82057EA110093C07F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		0D6797A92057EA110093C07F /* FacebookCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookCore.framework; sourceTree = "<group>"; };
+		0D6797AA2057EA110093C07F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		A507F7A01DEF1A8A00BE8E7F /* FacebookSocialAddon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookSocialAddon.swift; sourceTree = "<group>"; };
 		A533C4601DFF02EF00B539AF /* register_success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = register_success.json; sourceTree = "<group>"; };
 		A53B9D031E014D71005D514E /* HaloSocialGoogleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaloSocialGoogleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,13 +114,6 @@
 		A5425AA61DFFF6200081AB2B /* HaloSocialFacebookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaloSocialFacebookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5425AAA1DFFF6200081AB2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5425AB11DFFF65D0081AB2B /* BaseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSpec.swift; sourceTree = "<group>"; };
-		A58522881E1C047100305B3D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		A58522891E1C047100305B3D /* FacebookCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookCore.framework; sourceTree = "<group>"; };
-		A585228A1E1C047100305B3D /* FacebookLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookLogin.framework; sourceTree = "<group>"; };
-		A585228B1E1C047100305B3D /* FacebookShare.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookShare.framework; sourceTree = "<group>"; };
-		A585228C1E1C047100305B3D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		A585228D1E1C047100305B3D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		A585228E1E1C047100305B3D /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		A5AD5C2C1E01952F009CEB03 /* MockGoogleSocialAddon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockGoogleSocialAddon.swift; sourceTree = "<group>"; };
 		A5B86A941E00053600614646 /* FacebookSocialAddonSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookSocialAddonSpec.swift; sourceTree = "<group>"; };
 		A5BB3AA71E01646900EF499B /* GoogleSocialAddonSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSocialAddonSpec.swift; sourceTree = "<group>"; };
@@ -133,14 +126,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A58522951E1C047100305B3D /* FBSDKShareKit.framework in Frameworks */,
-				A58522901E1C047100305B3D /* FacebookCore.framework in Frameworks */,
-				A58522931E1C047100305B3D /* FBSDKCoreKit.framework in Frameworks */,
-				002E62431DD233D100B4CE78 /* Halo.framework in Frameworks */,
-				A58522911E1C047100305B3D /* FacebookLogin.framework in Frameworks */,
-				A58522941E1C047100305B3D /* FBSDKLoginKit.framework in Frameworks */,
-				A58522921E1C047100305B3D /* FacebookShare.framework in Frameworks */,
-				A585228F1E1C047100305B3D /* Bolts.framework in Frameworks */,
+				0D6797AF2057EA110093C07F /* Bolts.framework in Frameworks */,
+				0D6797AC2057EA110093C07F /* FBSDKLoginKit.framework in Frameworks */,
+				0D6797AE2057EA110093C07F /* FacebookCore.framework in Frameworks */,
+				0D6797AD2057EA110093C07F /* FBSDKCoreKit.framework in Frameworks */,
+				0D6797AB2057EA110093C07F /* FacebookLogin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,22 +140,15 @@
 			files = (
 				002E62441DD233D100B4CE78 /* Halo.framework in Frameworks */,
 				002E62651DD4852D00B4CE78 /* Security.framework in Frameworks */,
-				002EDD4D1DEEEF970022F96D /* GoogleSymbolUtilities.framework in Frameworks */,
 				002E62631DD4850B00B4CE78 /* CoreText.framework in Frameworks */,
 				002E62611DD484E600B4CE78 /* UIKit.framework in Frameworks */,
-				002EDD581DEEF0B60022F96D /* FirebaseAuth.framework in Frameworks */,
 				002E625F1DD484D800B4CE78 /* CoreGraphics.framework in Frameworks */,
-				002EDD4B1DEEEF840022F96D /* GoogleAppUtilities.framework in Frameworks */,
 				002E625D1DD4847200B4CE78 /* Foundation.framework in Frameworks */,
 				002E625C1DD4846300B4CE78 /* CoreFoundation.framework in Frameworks */,
-				002EDD591DEEF0B60022F96D /* FirebaseCore.framework in Frameworks */,
 				002E62581DD3149400B4CE78 /* SystemConfiguration.framework in Frameworks */,
 				002E62561DD3148C00B4CE78 /* SafariServices.framework in Frameworks */,
-				002EDD5B1DEEF0B60022F96D /* GoogleInterchangeUtilities.framework in Frameworks */,
-				002EDD5A1DEEF0B60022F96D /* FirebaseInstanceID.framework in Frameworks */,
 				002E624E1DD237FE00B4CE78 /* GoogleSignIn.framework in Frameworks */,
 				002E624F1DD237FE00B4CE78 /* GoogleSignInDependencies.framework in Frameworks */,
-				002EDD571DEEF0B60022F96D /* FirebaseAnalytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,15 +156,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5436C6D1E015C86004A6D6A /* GoogleSymbolUtilities.framework in Frameworks */,
-				A5436C6A1E015C86004A6D6A /* GoogleAppUtilities.framework in Frameworks */,
 				A5436C6B1E015C86004A6D6A /* GoogleSignIn.framework in Frameworks */,
 				A5436C6C1E015C86004A6D6A /* GoogleSignInDependencies.framework in Frameworks */,
-				A5844A7E1E015AE800BE29BA /* FirebaseAnalytics.framework in Frameworks */,
-				A5844A7F1E015AE800BE29BA /* FirebaseAuth.framework in Frameworks */,
-				A5844A801E015AE800BE29BA /* FirebaseCore.framework in Frameworks */,
-				A5844A811E015AE800BE29BA /* FirebaseInstanceID.framework in Frameworks */,
-				A5844A821E015AE800BE29BA /* GoogleInterchangeUtilities.framework in Frameworks */,
 				A53B9D131E01586C005D514E /* HaloSocialGoogle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,7 +198,7 @@
 		002E62121DD1E32900B4CE78 /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
-				A52005301E0AE3CC00BA9316 /* Frameworks */,
+				0D6797A52057EA110093C07F /* Frameworks */,
 				002E62131DD1E32900B4CE78 /* HaloSocialFacebook.h */,
 				002E62141DD1E32900B4CE78 /* Info.plist */,
 				A507F7A01DEF1A8A00BE8E7F /* FacebookSocialAddon.swift */,
@@ -260,9 +236,6 @@
 		002E62461DD237FE00B4CE78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				002EDD4E1DEEF0B60022F96D /* Firebase */,
-				002EDD4C1DEEEF970022F96D /* GoogleSymbolUtilities.framework */,
-				002EDD4A1DEEEF840022F96D /* GoogleAppUtilities.framework */,
 				002E62481DD237FE00B4CE78 /* GoogleSignIn.bundle */,
 				002E62491DD237FE00B4CE78 /* GoogleSignIn.framework */,
 				002E624A1DD237FE00B4CE78 /* GoogleSignInDependencies.framework */,
@@ -271,32 +244,16 @@
 			path = Google/Frameworks;
 			sourceTree = SOURCE_ROOT;
 		};
-		002EDD4E1DEEF0B60022F96D /* Firebase */ = {
+		0D6797A52057EA110093C07F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				002EDD4F1DEEF0B60022F96D /* Firebase.h */,
-				002EDD501DEEF0B60022F96D /* FirebaseAnalytics.framework */,
-				002EDD511DEEF0B60022F96D /* FirebaseAuth.framework */,
-				002EDD521DEEF0B60022F96D /* FirebaseCore.framework */,
-				002EDD531DEEF0B60022F96D /* FirebaseInstanceID.framework */,
-				002EDD541DEEF0B60022F96D /* GoogleInterchangeUtilities.framework */,
-				002EDD551DEEF0B60022F96D /* module.modulemap */,
+				0D6797A62057EA110093C07F /* FacebookLogin.framework */,
+				0D6797A72057EA110093C07F /* FBSDKLoginKit.framework */,
+				0D6797A82057EA110093C07F /* FBSDKCoreKit.framework */,
+				0D6797A92057EA110093C07F /* FacebookCore.framework */,
+				0D6797AA2057EA110093C07F /* Bolts.framework */,
 			);
-			path = Firebase;
-			sourceTree = "<group>";
-		};
-		A52005301E0AE3CC00BA9316 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A58522881E1C047100305B3D /* Bolts.framework */,
-				A58522891E1C047100305B3D /* FacebookCore.framework */,
-				A585228A1E1C047100305B3D /* FacebookLogin.framework */,
-				A585228B1E1C047100305B3D /* FacebookShare.framework */,
-				A585228C1E1C047100305B3D /* FBSDKCoreKit.framework */,
-				A585228D1E1C047100305B3D /* FBSDKLoginKit.framework */,
-				A585228E1E1C047100305B3D /* FBSDKShareKit.framework */,
-			);
-			name = Frameworks;
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		A53B9D041E014D71005D514E /* HaloSocialGoogleTests */ = {
@@ -365,7 +322,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				002E62531DD238E100B4CE78 /* HaloSocialGoogle.h in Headers */,
-				002EDD561DEEF0B60022F96D /* Firebase.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +335,7 @@
 				002E620B1DD1E32900B4CE78 /* Sources */,
 				002E620C1DD1E32900B4CE78 /* Frameworks */,
 				002E620D1DD1E32900B4CE78 /* Headers */,
+				0D6797B02057EA8A0093C07F /* CopyFiles */,
 				002E620E1DD1E32900B4CE78 /* Resources */,
 			);
 			buildRules = (
@@ -737,6 +694,7 @@
 		002E62191DD1E32900B4CE78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -747,10 +705,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Facebook/Frameworks",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Facebook/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobgen.HaloSocialFacebook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -762,6 +723,7 @@
 		002E621A1DD1E32900B4CE78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -772,10 +734,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Facebook/Frameworks",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Facebook/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobgen.HaloSocialFacebook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -786,6 +750,7 @@
 		002E62261DD1E5E900B4CE78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -815,6 +780,7 @@
 		002E62271DD1E5E900B4CE78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
